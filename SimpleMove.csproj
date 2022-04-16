@@ -148,11 +148,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\ejmplo.cs" />
-    <Compile Include="Models\listado_ayudante.cs" />
-    <Compile Include="Models\listado_vehiculos.cs" />
-    <Compile Include="Models\Model1.cs" />
-    <Compile Include="Models\Model2.cs" />
+    <Compile Include="Models\listado_ayudantes.cs" />
+    <Compile Include="Models\listado_conductores.cs" />
+    <Compile Include="Models\simplemove.cs" />
     <Compile Include="Models\sysdiagrams.cs" />
     <Compile Include="Models\usuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
