@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<SimpleMove.Models.listado_ayudantes>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "listado";
 }
 
-<h2>Index</h2>
+<h2>Ayudantes Disponibles</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -12,12 +12,11 @@
 <table class="table">
     
 
-@foreach (var item in Model) {
-<tr>
-  
-        <td>
-            <div class="album py-5 bg-light">
-                <div class="container">
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                <div class="album py-5 bg-light">
+                    <div class="container">
                     
                     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                         <div class="col">
@@ -44,11 +43,7 @@
                     </div>
                 </div>
             </div>
-
-        
-    
-
-</tr>
-}
+        </tr>
+     }
 
 </table>

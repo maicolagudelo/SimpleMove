@@ -166,7 +166,6 @@
     <Compile Include="Models\listado_ayudantes.cs" />
     <Compile Include="Models\listado_conductores.cs" />
     <Compile Include="Models\simplemove.cs" />
-    <Compile Include="Models\sysdiagrams.cs" />
     <Compile Include="Models\usuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -224,7 +223,7 @@
     <Content Include="Views\listado_ayudantes\Delete.cshtml" />
     <Content Include="Views\listado_ayudantes\Details.cshtml" />
     <Content Include="Views\listado_ayudantes\Edit.cshtml" />
-    <Content Include="Views\listado_ayudantes\Index.cshtml" />
+    <Content Include="Views\listado_ayudantes\index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
