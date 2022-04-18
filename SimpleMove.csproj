@@ -56,6 +56,9 @@
       <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.SQLServer.DTSRuntimeWrap, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=x86">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="Microsoft.SqlServer.FileSystemTask">
       <HintPath>..\..\..\..\..\..\Program Files\Microsoft SQL Server\150\DTS\Tasks\Microsoft.SqlServer.FileSystemTask.dll</HintPath>
     </Reference>
@@ -212,16 +215,16 @@
     <Content Include="Views\SimpleMove\Details.cshtml" />
     <Content Include="Views\SimpleMove\Edit.cshtml" />
     <Content Include="Views\SimpleMove\Index.cshtml" />
-    <Content Include="Views\listado_ayudantes\Create.cshtml" />
-    <Content Include="Views\listado_ayudantes\Delete.cshtml" />
-    <Content Include="Views\listado_ayudantes\Details.cshtml" />
-    <Content Include="Views\listado_ayudantes\Edit.cshtml" />
-    <Content Include="Views\listado_ayudantes\Index.cshtml" />
     <Content Include="Views\listado_conductores\Create.cshtml" />
     <Content Include="Views\listado_conductores\Delete.cshtml" />
     <Content Include="Views\listado_conductores\Details.cshtml" />
     <Content Include="Views\listado_conductores\Edit.cshtml" />
     <Content Include="Views\listado_conductores\Index.cshtml" />
+    <Content Include="Views\listado_ayudantes\Create.cshtml" />
+    <Content Include="Views\listado_ayudantes\Delete.cshtml" />
+    <Content Include="Views\listado_ayudantes\Details.cshtml" />
+    <Content Include="Views\listado_ayudantes\Edit.cshtml" />
+    <Content Include="Views\listado_ayudantes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
