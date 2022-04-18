@@ -10,71 +10,44 @@
     @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.usuarios.nombre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.descripcion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.costo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.medioInfo)
-        </th>
-        <th></th>
-    </tr>
+    
 
 @foreach (var item in Model) {
 <tr>
-    <td>
-        <div class="album py-5 bg-light">
-            <div class="container">
+  
+        <td>
+            <div class="album py-5 bg-light">
+                <div class="container">
+                    
+                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                        <div class="col">
+                            <div class="card shadow-sm">
 
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                    <div class="col">
-                        <div class="card shadow-sm">
-                            
-                            <div class="card-body">
-                                <p class="card-text">@Html.DisplayFor(modelItem => item.usuarios.nombre)</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                <div class="card-body">
+                                    <h3>@Html.DisplayFor(modelItem => item.usuarios.nombre)</h3>
+                                    <p class="card-text">@Html.DisplayFor(modelItem => item.usuarios.email)</p>
+                                    <p class="card-text">@Html.DisplayFor(modelItem => item.descripcion)</p>
+                                    <p class="card-text">@Html.DisplayFor(modelItem => item.costo)</p>
+                                    <p class="card-text">@Html.DisplayFor(modelItem => item.medioInfo)</p>
+
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            
+                                            <button type="button" class="btn btn-sm btn-outline-secondary">| @Html.ActionLink("Detalles", "Details", new { id = item.codigo }) |</button>
+                                        </div>
+                                        
                                     </div>
-                                    <small class="text-muted">9 mins</small>
                                 </div>
                             </div>
                         </div>
+
                     </div>
-                    
                 </div>
             </div>
-        </div>
 
-        <div style="background-color:red">
-            
-
-        </div>
-    </td>
-    <td>
-        <div>
-            @Html.DisplayFor(modelItem => item.descripcion)
-        </div>
         
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.costo)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.medioInfo)
-    </td>
-    <td>
-        @Html.ActionLink("Edit", "Edit", new { id = item.codigo }) |
-        @Html.ActionLink("Details", "Details", new { id = item.codigo }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.codigo })
-    </td>
+    
+
 </tr>
 }
 
