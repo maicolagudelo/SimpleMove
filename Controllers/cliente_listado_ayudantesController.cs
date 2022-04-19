@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using SimpleMove.Models;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
-using SimpleMove.Models;
 
 namespace SimpleMove.Controllers
 {
@@ -18,8 +14,11 @@ namespace SimpleMove.Controllers
         public ActionResult Listado()
         {
             var listado_ayudantes = db.listado_ayudantes.Include(l => l.usuarios);
+           
             return View(listado_ayudantes.ToList());
+
         }
+        
 
         // GET: cliente_listado_ayudantes/Details/5
         public ActionResult Calificacion(int? id)
@@ -128,5 +127,7 @@ namespace SimpleMove.Controllers
             }
             base.Dispose(disposing);
         }
+
+       
     }
 }
