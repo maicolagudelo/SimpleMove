@@ -13,6 +13,7 @@ namespace SimpleMove.Controllers
     public class cliente_listado_conductoresController : Controller
     {
         private simplemove db = new simplemove();
+        
 
         // GET: cliente_listado_conductores
         public ActionResult Listado()
@@ -21,8 +22,20 @@ namespace SimpleMove.Controllers
             return View(listado_conductores.ToList());
         }
 
-        // GET: cliente_listado_conductores/Details/5
-        public ActionResult Calificacion(int? id)
+        public  string Listados()
+        {
+            if (db.listado_conductores.ToList().Count > 0)
+            {
+                return "conectado";
+            }
+            else
+            {
+                return "no conectado";
+            }
+        }
+
+    // GET: cliente_listado_conductores/Details/5
+    public ActionResult Calificacion(int? id)
         {
             if (id == null)
             {
@@ -119,6 +132,8 @@ namespace SimpleMove.Controllers
             db.SaveChanges();
             return RedirectToAction("Listado");
         }
+         
+        
 
         protected override void Dispose(bool disposing)
         {
