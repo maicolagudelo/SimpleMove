@@ -216,10 +216,7 @@
     <Content Include="Views\Registro\Details.cshtml" />
     <Content Include="Views\Registro\Edit.cshtml" />
     <Content Include="Views\Registro\Index.cshtml" />
-    <Content Include="Views\cliente_listado_conductores\Create.cshtml" />
-    <Content Include="Views\cliente_listado_conductores\Delete.cshtml" />
     <Content Include="Views\cliente_listado_conductores\Calificacion.cshtml" />
-    <Content Include="Views\cliente_listado_conductores\Edit.cshtml" />
     <Content Include="Views\cliente_listado_conductores\Listado.cshtml" />
   </ItemGroup>
   <ItemGroup>
