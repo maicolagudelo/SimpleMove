@@ -156,7 +156,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\clientes_listado_ayudantesController.cs" />
+    <Compile Include="Controllers\cliente_listado_ayudantesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\listado_ayudantesController.cs" />
     <Compile Include="Controllers\listado_conductoresController.cs" />
@@ -225,6 +225,11 @@
     <Content Include="Views\listado_ayudantes\Details.cshtml" />
     <Content Include="Views\listado_ayudantes\Edit.cshtml" />
     <Content Include="Views\listado_ayudantes\index.cshtml" />
+    <Content Include="Views\cliente_listado_ayudantes\Create.cshtml" />
+    <Content Include="Views\cliente_listado_ayudantes\Delete.cshtml" />
+    <Content Include="Views\cliente_listado_ayudantes\Details.cshtml" />
+    <Content Include="Views\cliente_listado_ayudantes\Edit.cshtml" />
+    <Content Include="Views\cliente_listado_ayudantes\Listado.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
