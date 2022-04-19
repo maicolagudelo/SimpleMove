@@ -22,7 +22,7 @@ namespace SimpleMove.Controllers
         }
 
         // GET: cliente_listado_ayudantes/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Calificacion(int? id)
         {
             if (id == null)
             {
@@ -54,7 +54,7 @@ namespace SimpleMove.Controllers
             {
                 db.listado_ayudantes.Add(listado_ayudantes);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Listado");
             }
 
             ViewBag.email = new SelectList(db.usuarios, "email", "nombre", listado_ayudantes.email);
@@ -88,7 +88,7 @@ namespace SimpleMove.Controllers
             {
                 db.Entry(listado_ayudantes).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Listado");
             }
             ViewBag.email = new SelectList(db.usuarios, "email", "nombre", listado_ayudantes.email);
             return View(listado_ayudantes);
@@ -117,7 +117,7 @@ namespace SimpleMove.Controllers
             listado_ayudantes listado_ayudantes = db.listado_ayudantes.Find(id);
             db.listado_ayudantes.Remove(listado_ayudantes);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Listado");
         }
 
         protected override void Dispose(bool disposing)

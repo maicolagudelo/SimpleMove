@@ -227,7 +227,7 @@
     <Content Include="Views\listado_ayudantes\index.cshtml" />
     <Content Include="Views\cliente_listado_ayudantes\Create.cshtml" />
     <Content Include="Views\cliente_listado_ayudantes\Delete.cshtml" />
-    <Content Include="Views\cliente_listado_ayudantes\Details.cshtml" />
+    <Content Include="Views\cliente_listado_ayudantes\Calificacion.cshtml" />
     <Content Include="Views\cliente_listado_ayudantes\Edit.cshtml" />
     <Content Include="Views\cliente_listado_ayudantes\Listado.cshtml" />
   </ItemGroup>
