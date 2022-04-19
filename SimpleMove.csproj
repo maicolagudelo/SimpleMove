@@ -158,9 +158,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\cliente_listado_ayudantesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\listado_ayudantesController.cs" />
-    <Compile Include="Controllers\listado_conductoresController.cs" />
-    <Compile Include="Controllers\SimpleMoveController.cs" />
+    <Compile Include="Controllers\RegistroController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -210,26 +208,13 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\SimpleMove\Create.cshtml" />
-    <Content Include="Views\SimpleMove\Delete.cshtml" />
-    <Content Include="Views\SimpleMove\Details.cshtml" />
-    <Content Include="Views\SimpleMove\Edit.cshtml" />
-    <Content Include="Views\SimpleMove\Index.cshtml" />
-    <Content Include="Views\listado_conductores\Create.cshtml" />
-    <Content Include="Views\listado_conductores\Delete.cshtml" />
-    <Content Include="Views\listado_conductores\Details.cshtml" />
-    <Content Include="Views\listado_conductores\Edit.cshtml" />
-    <Content Include="Views\listado_conductores\Index.cshtml" />
-    <Content Include="Views\listado_ayudantes\Create.cshtml" />
-    <Content Include="Views\listado_ayudantes\Delete.cshtml" />
-    <Content Include="Views\listado_ayudantes\Details.cshtml" />
-    <Content Include="Views\listado_ayudantes\Edit.cshtml" />
-    <Content Include="Views\listado_ayudantes\index.cshtml" />
-    <Content Include="Views\cliente_listado_ayudantes\Create.cshtml" />
-    <Content Include="Views\cliente_listado_ayudantes\Delete.cshtml" />
     <Content Include="Views\cliente_listado_ayudantes\Calificacion.cshtml" />
-    <Content Include="Views\cliente_listado_ayudantes\Edit.cshtml" />
     <Content Include="Views\cliente_listado_ayudantes\Listado.cshtml" />
+    <Content Include="Views\Registro\Create.cshtml" />
+    <Content Include="Views\Registro\Delete.cshtml" />
+    <Content Include="Views\Registro\Details.cshtml" />
+    <Content Include="Views\Registro\Edit.cshtml" />
+    <Content Include="Views\Registro\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
