@@ -22,17 +22,7 @@ namespace SimpleMove.Controllers
             return View(listado_conductores.ToList());
         }
 
-        public  string Listados()
-        {
-            if (db.listado_conductores.ToList().Count > 0)
-            {
-                return "conectado";
-            }
-            else
-            {
-                return "no conectado";
-            }
-        }
+        
 
     // GET: cliente_listado_conductores/Details/5
     public ActionResult Calificacion(int? id)
@@ -132,9 +122,19 @@ namespace SimpleMove.Controllers
             db.SaveChanges();
             return RedirectToAction("Listado");
         }
-         
-        
 
+
+        public string Eliminar()
+        {
+            if (db.listado_conductores.ToList().Count > 0)
+            {
+                return "conectado";
+            }
+            else
+            {
+                return "no conectado";
+            }
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)
