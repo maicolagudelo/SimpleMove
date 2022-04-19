@@ -22,7 +22,10 @@ namespace SimpleMove.Models
 
         [StringLength(100)]
         public string medioInfo { get; set; }
-
+        public string Listados()
+        {
+                return "conectado";
+        }
         public virtual usuarios usuarios { get; set; }
     }
 }
