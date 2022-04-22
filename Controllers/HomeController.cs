@@ -15,7 +15,7 @@ namespace SimpleMove.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Mudanzas simples";
 
             return View();
         }
