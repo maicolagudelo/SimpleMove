@@ -215,16 +215,16 @@
     <Content Include="Views\SimpleMove\Details.cshtml" />
     <Content Include="Views\SimpleMove\Edit.cshtml" />
     <Content Include="Views\SimpleMove\Index.cshtml" />
-    <Content Include="Views\listado_conductores\Create.cshtml" />
-    <Content Include="Views\listado_conductores\Delete.cshtml" />
-    <Content Include="Views\listado_conductores\Details.cshtml" />
-    <Content Include="Views\listado_conductores\Edit.cshtml" />
-    <Content Include="Views\listado_conductores\Index.cshtml" />
-    <Content Include="Views\listado_ayudantes\Create.cshtml" />
-    <Content Include="Views\listado_ayudantes\Delete.cshtml" />
-    <Content Include="Views\listado_ayudantes\Details.cshtml" />
-    <Content Include="Views\listado_ayudantes\Edit.cshtml" />
-    <Content Include="Views\listado_ayudantes\Index.cshtml" />
+    <Content Include="Views\Cliente\listado_conductores\Create.cshtml" />
+    <Content Include="Views\Cliente\listado_conductores\Delete.cshtml" />
+    <Content Include="Views\Cliente\listado_conductores\Details.cshtml" />
+    <Content Include="Views\Cliente\listado_conductores\Edit.cshtml" />
+    <Content Include="Views\Cliente\listado_conductores\Index.cshtml" />
+    <Content Include="Views\Cliente\listado_ayudantes\Create.cshtml" />
+    <Content Include="Views\Cliente\listado_ayudantes\Delete.cshtml" />
+    <Content Include="Views\Cliente\listado_ayudantes\Details.cshtml" />
+    <Content Include="Views\Cliente\listado_ayudantes\Edit.cshtml" />
+    <Content Include="Views\Cliente\listado_ayudantes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
