@@ -26,5 +26,29 @@ namespace SimpleMove.Controllers
 
             return View();
         }
+
+        public ActionResult index_cliente()
+        {
+            
+            return View();
+        }
+
+        public ActionResult index_ayudante()
+        {
+
+            return View();
+        }
+
+        public ActionResult index_conductor()
+        {
+
+            return View();
+        }
+
+        public ActionResult index_administrador()
+        {
+
+            return View();
+        }
     }
 }
