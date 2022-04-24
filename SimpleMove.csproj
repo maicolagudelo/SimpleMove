@@ -234,6 +234,7 @@
     <Content Include="Views\cliente_ayudante\Calificacion.cshtml" />
     <Content Include="Views\cliente_ayudante\Edit.cshtml" />
     <Content Include="Views\cliente_ayudante\Listado.cshtml" />
+    <Content Include="Views\cliente_listado_ayudantes\ReporteSimple.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
