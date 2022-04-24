@@ -56,13 +56,13 @@ namespace SimpleMove.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "codigo,email,descripcion,costo,medioInfo")] listado_ayudantes listado_ayudantes)
+        public ActionResult Crear([Bind(Include = "codigo,email,descripcion,costo,medioInfo")] listado_ayudantes listado_ayudantes)
         {
             if (ModelState.IsValid)
             {
                 db.listado_ayudantes.Add(listado_ayudantes);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index_ayudante");
             }
 
             ViewBag.email = new SelectList(db.usuarios, "email", "nombre", listado_ayudantes.email);
