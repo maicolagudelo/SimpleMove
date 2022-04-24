@@ -22,6 +22,11 @@ namespace SimpleMove.Controllers
             return View(listado_conductores.ToList());
         }
 
+        public ActionResult Listado_conductores()
+        {
+            var listado_conductores = db.listado_conductores.Include(l => l.usuarios);
+            return View(listado_conductores.ToList());
+        }
 
 
         // GET: cliente_listado_conductores/Details/5
@@ -39,8 +44,23 @@ namespace SimpleMove.Controllers
             return View(listado_conductores);
         }
 
+        // GET: cliente_listado_conductores/Details/5
+        public ActionResult Calificacion_conductores(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            listado_conductores listado_conductores = db.listado_conductores.Find(id);
+            if (listado_conductores == null)
+            {
+                return HttpNotFound();
+            }
+            return View(listado_conductores);
+        }
+
         // GET: cliente_listado_conductores/Create
-        public ActionResult Create()
+        public ActionResult Crear()
         {
             ViewBag.email = new SelectList(db.usuarios, "email", "nombre");
             return View();
@@ -51,13 +71,13 @@ namespace SimpleMove.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "codigo,email,descripcion,costo,medioInfo,capacidad")] listado_conductores listado_conductores)
+        public ActionResult Crear([Bind(Include = "codigo,email,descripcion,costo,medioInfo,capacidad")] listado_conductores listado_conductores)
         {
             if (ModelState.IsValid)
             {
                 db.listado_conductores.Add(listado_conductores);
                 db.SaveChanges();
-                return RedirectToAction("Listado");
+                return RedirectToAction("Listado_conductores");
             }
 
             ViewBag.email = new SelectList(db.usuarios, "email", "nombre", listado_conductores.email);
@@ -65,7 +85,7 @@ namespace SimpleMove.Controllers
         }
 
         // GET: cliente_listado_conductores/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Editar(int? id)
         {
             if (id == null)
             {
@@ -85,13 +105,13 @@ namespace SimpleMove.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "codigo,email,descripcion,costo,medioInfo,capacidad")] listado_conductores listado_conductores)
+        public ActionResult Editar([Bind(Include = "codigo,email,descripcion,costo,medioInfo,capacidad")] listado_conductores listado_conductores)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(listado_conductores).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Listado");
+                return RedirectToAction("Listado_conductores");
             }
             ViewBag.email = new SelectList(db.usuarios, "email", "nombre", listado_conductores.email);
             return View(listado_conductores);

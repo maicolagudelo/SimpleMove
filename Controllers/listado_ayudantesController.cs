@@ -110,7 +110,7 @@ namespace SimpleMove.Controllers
             {
                 db.Entry(listado_ayudantes).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("listado_ayudante");
             }
             ViewBag.email = new SelectList(db.usuarios, "email", "nombre", listado_ayudantes.email);
             return View(listado_ayudantes);
