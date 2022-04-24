@@ -54,9 +54,11 @@
                     @Html.DisplayFor(modelItem => item.direccion)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.email }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.email }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.email })
+                    <button type="button" class="btn btn-sm btn-outline-secondary">| @Html.ActionLink("Edit", "Edit", new { id = item.email }) |</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary">| @Html.ActionLink("Details", "Details", new { id = item.email }) |</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary">| @Html.ActionLink("Delete", "Delete", new { id = item.email }) |</button>
+
+                   
                 </td>
             </tr>
         }
