@@ -15,14 +15,14 @@ namespace SimpleMove.Controllers
         private simplemove db = new simplemove();
 
         // GET: cliente_ayudante
-        public ActionResult Index()
+        public ActionResult Listado()
         {
             var listado_ayudantes = db.listado_ayudantes.Include(l => l.usuarios);
             return View(listado_ayudantes.ToList());
         }
 
         // GET: cliente_ayudante/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Calificacion(int? id)
         {
             if (id == null)
             {
