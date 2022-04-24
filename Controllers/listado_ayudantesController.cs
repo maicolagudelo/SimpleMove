@@ -10,7 +10,7 @@ using SimpleMove.Models;
 
 namespace SimpleMove.Controllers
 {
-    public class listado_ayudanteController : Controller
+    public class listado_ayudantesController : Controller
     {
         private simplemove db = new simplemove();
 
@@ -20,7 +20,7 @@ namespace SimpleMove.Controllers
             var listado_ayudantes = db.listado_ayudantes.Include(l => l.usuarios);
             return View(listado_ayudantes.ToList());
         }
-
+        
         // GET: cliente_ayudante
         public ActionResult Listado_ayudante()
         {
@@ -62,7 +62,7 @@ namespace SimpleMove.Controllers
             {
                 db.listado_ayudantes.Add(listado_ayudantes);
                 db.SaveChanges();
-                return RedirectToAction("Index_ayudante");
+                return RedirectToAction("listado_ayudante");
             }
 
             ViewBag.email = new SelectList(db.usuarios, "email", "nombre", listado_ayudantes.email);
