@@ -227,9 +227,9 @@
     <Content Include="Views\cliente_conductores\Delete.cshtml" />
     <Content Include="Views\cliente_conductores\Details.cshtml" />
     <Content Include="Views\cliente_conductores\Edit.cshtml" />
-    <Content Include="Views\cliente_conductores\Index.cshtml" />
     <Content Include="Views\cliente_conductores\Listado.cshtml" />
     <Content Include="Views\cliente_conductores\Calificacion.cshtml" />
+    <Content Include="Views\cliente_listado_conductores\Listado.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
