@@ -160,6 +160,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\cliente_ayudanteController.cs" />
+    <Compile Include="Controllers\cliente_conductoresController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RegistroController.cs" />
     <Compile Include="Global.asax.cs">
@@ -211,26 +212,24 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\cliente_listado_ayudantes\Calificacion.cshtml" />
-    <Content Include="Views\cliente_listado_ayudantes\Listado.cshtml" />
     <Content Include="Views\Registro\Create.cshtml" />
     <Content Include="Views\Registro\Delete.cshtml" />
     <Content Include="Views\Registro\Details.cshtml" />
     <Content Include="Views\Registro\Edit.cshtml" />
     <Content Include="Views\Registro\Index.cshtml" />
-    <Content Include="Views\cliente_listado_conductores\Calificacion.cshtml" />
-    <Content Include="Views\cliente_listado_conductores\Listado.cshtml" />
-    <Content Include="Views\cliente_ayudante\Create.cshtml" />
-    <Content Include="Views\cliente_ayudante\Delete.cshtml" />
     <Content Include="Views\cliente_ayudante\Calificacion.cshtml" />
-    <Content Include="Views\cliente_ayudante\Edit.cshtml" />
     <Content Include="Views\cliente_ayudante\Listado.cshtml" />
-    <Content Include="Views\cliente_conductores\Calificacion.cshtml" />
-    <Content Include="Views\cliente_conductores\Listado.cshtml" />
     <Content Include="Views\Home\index_cliente.cshtml" />
     <Content Include="Views\Home\index_ayudante.cshtml" />
     <Content Include="Views\Home\index_conductor.cshtml" />
     <Content Include="Views\Home\index_administrador.cshtml" />
+    <Content Include="Views\cliente_conductores\Create.cshtml" />
+    <Content Include="Views\cliente_conductores\Delete.cshtml" />
+    <Content Include="Views\cliente_conductores\Details.cshtml" />
+    <Content Include="Views\cliente_conductores\Edit.cshtml" />
+    <Content Include="Views\cliente_conductores\Index.cshtml" />
+    <Content Include="Views\cliente_conductores\Listado.cshtml" />
+    <Content Include="Views\cliente_conductores\Calificacion.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
