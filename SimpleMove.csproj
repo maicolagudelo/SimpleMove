@@ -225,6 +225,9 @@
     <Content Include="Views\listado_conductores\Listado.cshtml" />
     <Content Include="Views\listado_conductores\Calificacion.cshtml" />
     <Content Include="Views\Shared\_Layout_clientes.cshtml" />
+    <Content Include="Views\listado_ayudante\Crear.cshtml" />
+    <Content Include="Views\Shared\_Layout_ayudantes.cshtml" />
+    <Content Include="Views\listado_ayudante\Listado_ayudante.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

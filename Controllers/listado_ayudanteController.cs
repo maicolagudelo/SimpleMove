@@ -21,6 +21,14 @@ namespace SimpleMove.Controllers
             return View(listado_ayudantes.ToList());
         }
 
+        // GET: cliente_ayudante
+        public ActionResult Listado_ayudante()
+        {
+            var listado_ayudantes = db.listado_ayudantes.Include(l => l.usuarios);
+            return View(listado_ayudantes.ToList());
+        }
+
+
         // GET: cliente_ayudante/Details/5  
         public ActionResult Calificacion(int? id)
         {
@@ -37,7 +45,7 @@ namespace SimpleMove.Controllers
         }
 
         // GET: cliente_ayudante/Create
-        public ActionResult Create()
+        public ActionResult Crear()
         {
             ViewBag.email = new SelectList(db.usuarios, "email", "nombre");
             return View();
