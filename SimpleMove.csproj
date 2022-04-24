@@ -159,8 +159,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\cliente_ayudanteController.cs" />
-    <Compile Include="Controllers\cliente_conductoresController.cs" />
+    <Compile Include="Controllers\listado_ayudanteController.cs" />
+    <Compile Include="Controllers\listado_conductoresController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RegistroController.cs" />
     <Compile Include="Global.asax.cs">
@@ -216,14 +216,14 @@
     <Content Include="Views\Registro\Details.cshtml" />
     <Content Include="Views\Registro\Edit.cshtml" />
     <Content Include="Views\Registro\Index.cshtml" />
-    <Content Include="Views\cliente_ayudante\Calificacion.cshtml" />
-    <Content Include="Views\cliente_ayudante\Listado.cshtml" />
+    <Content Include="Views\listado_ayudante\Calificacion.cshtml" />
+    <Content Include="Views\listado_ayudante\Listado.cshtml" />
     <Content Include="Views\Home\index_cliente.cshtml" />
     <Content Include="Views\Home\index_ayudante.cshtml" />
     <Content Include="Views\Home\index_conductor.cshtml" />
     <Content Include="Views\Home\index_administrador.cshtml" />
-    <Content Include="Views\cliente_conductores\Listado.cshtml" />
-    <Content Include="Views\cliente_conductores\Calificacion.cshtml" />
+    <Content Include="Views\listado_conductores\Listado.cshtml" />
+    <Content Include="Views\listado_conductores\Calificacion.cshtml" />
     <Content Include="Views\Shared\_Layout_clientes.cshtml" />
   </ItemGroup>
   <ItemGroup>

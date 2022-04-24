@@ -10,7 +10,7 @@ using SimpleMove.Models;
 
 namespace SimpleMove.Controllers
 {
-    public class cliente_ayudanteController : Controller
+    public class listado_ayudanteController : Controller
     {
         private simplemove db = new simplemove();
 
@@ -21,7 +21,7 @@ namespace SimpleMove.Controllers
             return View(listado_ayudantes.ToList());
         }
 
-        // GET: cliente_ayudante/Details/5
+        // GET: cliente_ayudante/Details/5  
         public ActionResult Calificacion(int? id)
         {
             if (id == null)
