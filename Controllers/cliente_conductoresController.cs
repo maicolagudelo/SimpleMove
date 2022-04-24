@@ -10,7 +10,7 @@ using SimpleMove.Models;
 
 namespace SimpleMove.Controllers
 {
-    public class cliente_listado_conductoresController : Controller
+    public class cliente_conductoresController : Controller
     {
         private simplemove db = new simplemove();
 
