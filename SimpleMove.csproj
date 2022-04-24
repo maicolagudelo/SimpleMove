@@ -228,6 +228,8 @@
     <Content Include="Views\listado_ayudantes\Crear.cshtml" />
     <Content Include="Views\Shared\_Layout_ayudantes.cshtml" />
     <Content Include="Views\listado_ayudantes\Listado_ayudante.cshtml" />
+    <Content Include="Views\listado_ayudantes\Calificacion_ayudante.cshtml" />
+    <Content Include="Views\listado_ayudantes\Editar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -44,6 +44,20 @@ namespace SimpleMove.Controllers
             return View(listado_ayudantes);
         }
 
+        public ActionResult Calificacion_ayudante(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            listado_ayudantes listado_ayudantes = db.listado_ayudantes.Find(id);
+            if (listado_ayudantes == null)
+            {
+                return HttpNotFound();
+            }
+            return View(listado_ayudantes);
+        }
+
         // GET: cliente_ayudante/Create
         public ActionResult Crear()
         {
@@ -70,7 +84,7 @@ namespace SimpleMove.Controllers
         }
 
         // GET: cliente_ayudante/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Editar(int? id)
         {
             if (id == null)
             {
@@ -90,7 +104,7 @@ namespace SimpleMove.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "codigo,email,descripcion,costo,medioInfo")] listado_ayudantes listado_ayudantes)
+        public ActionResult Editar([Bind(Include = "codigo,email,descripcion,costo,medioInfo")] listado_ayudantes listado_ayudantes)
         {
             if (ModelState.IsValid)
             {
