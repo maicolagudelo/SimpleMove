@@ -28,6 +28,13 @@ namespace SimpleMove.Controllers
             return View(listado_ayudantes.ToList());
         }
 
+        // GET: cliente_ayudante
+        public ActionResult Listado_administradores()
+        {
+            var listado_ayudantes = db.listado_ayudantes.Include(l => l.usuarios);
+            return View(listado_ayudantes.ToList());
+        }
+
 
         // GET: cliente_ayudante/Details/5  
         public ActionResult Calificacion(int? id)
@@ -45,6 +52,20 @@ namespace SimpleMove.Controllers
         }
 
         public ActionResult Calificacion_ayudante(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            listado_ayudantes listado_ayudantes = db.listado_ayudantes.Find(id);
+            if (listado_ayudantes == null)
+            {
+                return HttpNotFound();
+            }
+            return View(listado_ayudantes);
+        }
+
+        public ActionResult Calificacion_administrador(int? id)
         {
             if (id == null)
             {
@@ -105,6 +126,40 @@ namespace SimpleMove.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Editar([Bind(Include = "codigo,email,descripcion,costo,medioInfo")] listado_ayudantes listado_ayudantes)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(listado_ayudantes).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("listado_ayudante");
+            }
+            ViewBag.email = new SelectList(db.usuarios, "email", "nombre", listado_ayudantes.email);
+            return View(listado_ayudantes);
+        }
+
+
+        // GET: cliente_ayudante/Edit/5
+        public ActionResult Editar_administradores(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            listado_ayudantes listado_ayudantes = db.listado_ayudantes.Find(id);
+            if (listado_ayudantes == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.email = new SelectList(db.usuarios, "email", "nombre", listado_ayudantes.email);
+            return View(listado_ayudantes);
+        }
+
+        // POST: cliente_ayudante/Edit/5
+        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
+        // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Editar_administadores([Bind(Include = "codigo,email,descripcion,costo,medioInfo")] listado_ayudantes listado_ayudantes)
         {
             if (ModelState.IsValid)
             {

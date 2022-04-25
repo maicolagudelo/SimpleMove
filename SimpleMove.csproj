@@ -242,6 +242,10 @@
     <Content Include="Views\usuarios\Details.cshtml" />
     <Content Include="Views\usuarios\Edit.cshtml" />
     <Content Include="Views\usuarios\Usuarios.cshtml" />
+    <Content Include="Views\listado_ayudantes\Editar_administradores.cshtml" />
+    <Content Include="Views\listado_ayudantes\Calificacion_administrador.cshtml" />
+    <Content Include="Views\listado_ayudantes\Listado_administradores.cshtml" />
+    <Content Include="Views\listado_ayudantes\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
