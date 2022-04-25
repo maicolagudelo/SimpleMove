@@ -1,4 +1,4 @@
-﻿@model SimpleMove.Models.listado_ayudantes
+﻿@model SimpleMove.Models.listado_conductores
 
 @{
     Layout = "~/Views/Shared/_Layout_administrador.cshtml";
@@ -20,40 +20,41 @@
             <dt>
                 @Html.DisplayNameFor(model => model.usuarios.nombre)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.usuarios.nombre)
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.descripcion)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.descripcion)
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.costo)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.costo)
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.medioInfo)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.medioInfo)
             </dd>
-    
+
         </dl>
-    
-        @using (Html.BeginForm()) {
+
+        @using (Html.BeginForm())
+        {
             @Html.AntiForgeryToken()
-    
+
             <div class="form-actions no-color">
                 <input type="submit" value="Delete" class="btn btn-default" /> |
                 <button type="button" class="btn btn-sm btn-outline-secondary">| @Html.ActionLink("Atras", "Listado_administradores") |</button>

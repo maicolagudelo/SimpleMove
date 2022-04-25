@@ -14,27 +14,12 @@ namespace SimpleMove.Controllers
     {
         private simplemove db = new simplemove();
 
-        // GET: cliente_ayudante
+        // Cliente
         public ActionResult Listado()
         {
             var listado_ayudantes = db.listado_ayudantes.Include(l => l.usuarios);
             return View(listado_ayudantes.ToList());
         }
-        
-        // GET: cliente_ayudante
-        public ActionResult Listado_ayudante()
-        {
-            var listado_ayudantes = db.listado_ayudantes.Include(l => l.usuarios);
-            return View(listado_ayudantes.ToList());
-        }
-
-        // GET: cliente_ayudante
-        public ActionResult Listado_administradores()
-        {
-            var listado_ayudantes = db.listado_ayudantes.Include(l => l.usuarios);
-            return View(listado_ayudantes.ToList());
-        }
-
 
         // GET: cliente_ayudante/Details/5  
         public ActionResult Calificacion(int? id)
@@ -51,6 +36,21 @@ namespace SimpleMove.Controllers
             return View(listado_ayudantes);
         }
 
+
+
+
+
+
+
+
+
+        // Ayudante
+        public ActionResult Listado_ayudante()
+        {
+            var listado_ayudantes = db.listado_ayudantes.Include(l => l.usuarios);
+            return View(listado_ayudantes.ToList());
+        }
+
         public ActionResult Calificacion_ayudante(int? id)
         {
             if (id == null)
@@ -65,21 +65,6 @@ namespace SimpleMove.Controllers
             return View(listado_ayudantes);
         }
 
-        public ActionResult Calificacion_administrador(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            listado_ayudantes listado_ayudantes = db.listado_ayudantes.Find(id);
-            if (listado_ayudantes == null)
-            {
-                return HttpNotFound();
-            }
-            return View(listado_ayudantes);
-        }
-
-        // GET: cliente_ayudante/Create
         public ActionResult Crear()
         {
             ViewBag.email = new SelectList(db.usuarios, "email", "nombre");
@@ -103,6 +88,7 @@ namespace SimpleMove.Controllers
             ViewBag.email = new SelectList(db.usuarios, "email", "nombre", listado_ayudantes.email);
             return View(listado_ayudantes);
         }
+
 
         // GET: cliente_ayudante/Edit/5
         public ActionResult Editar(int? id)
@@ -138,6 +124,32 @@ namespace SimpleMove.Controllers
         }
 
 
+
+
+
+
+        // Administrador
+        public ActionResult Listado_administradores()
+        {
+            var listado_ayudantes = db.listado_ayudantes.Include(l => l.usuarios);
+            return View(listado_ayudantes.ToList());
+        }
+
+        public ActionResult Calificacion_administrador(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            listado_ayudantes listado_ayudantes = db.listado_ayudantes.Find(id);
+            if (listado_ayudantes == null)
+            {
+                return HttpNotFound();
+            }
+            return View(listado_ayudantes);
+        }
+
+        
         // GET: cliente_ayudante/Edit/5
         public ActionResult Editar_administradores(int? id)
         {
