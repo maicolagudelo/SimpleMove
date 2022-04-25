@@ -1,7 +1,7 @@
 ﻿@model SimpleMove.Models.listado_ayudantes
 
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout_administrador.cshtml";
 }
 
 <!DOCTYPE html>
@@ -56,7 +56,7 @@
     
             <div class="form-actions no-color">
                 <input type="submit" value="Delete" class="btn btn-default" /> |
-                @Html.ActionLink("Back to List", "Index")
+                <button type="button" class="btn btn-sm btn-outline-secondary">| @Html.ActionLink("Atras", "Listado_administradores") |</button>
             </div>
         }
     </div>

@@ -159,13 +159,13 @@ namespace SimpleMove.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Editar_administadores([Bind(Include = "codigo,email,descripcion,costo,medioInfo")] listado_ayudantes listado_ayudantes)
+        public ActionResult Editar_administradores([Bind(Include = "codigo,email,descripcion,costo,medioInfo")] listado_ayudantes listado_ayudantes)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(listado_ayudantes).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("listado_ayudante");
+                return RedirectToAction("listado_administradores");
             }
             ViewBag.email = new SelectList(db.usuarios, "email", "nombre", listado_ayudantes.email);
             return View(listado_ayudantes);
@@ -194,7 +194,7 @@ namespace SimpleMove.Controllers
             listado_ayudantes listado_ayudantes = db.listado_ayudantes.Find(id);
             db.listado_ayudantes.Remove(listado_ayudantes);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Listado_administradores");
         }
 
         protected override void Dispose(bool disposing)
