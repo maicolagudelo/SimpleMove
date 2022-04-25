@@ -29,6 +29,12 @@ namespace SimpleMove.Controllers
         }
 
 
+        public ActionResult Listado_administradores()
+        {
+            var listado_conductores = db.listado_conductores.Include(l => l.usuarios);
+            return View(listado_conductores.ToList());
+        }
+
         // GET: cliente_listado_conductores/Details/5
         public ActionResult Calificacion(int? id)
         {
@@ -58,6 +64,70 @@ namespace SimpleMove.Controllers
             }
             return View(listado_conductores);
         }
+
+        //administrador 
+
+        public ActionResult Calificacion_administradores(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            listado_conductores listado_conductores = db.listado_conductores.Find(id);
+            if (listado_conductores == null)
+            {
+                return HttpNotFound();
+            }
+            return View(listado_conductores);
+        }
+
+
+
+
+        // GET: cliente_listado_conductores/Edit/5
+        public ActionResult Editar_administradores(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            listado_conductores listado_conductores = db.listado_conductores.Find(id);
+            if (listado_conductores == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.email = new SelectList(db.usuarios, "email", "nombre", listado_conductores.email);
+            return View(listado_conductores);
+        }
+
+        // POST: cliente_listado_conductores/Edit/5
+        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
+        // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Editar_administradores([Bind(Include = "codigo,email,descripcion,costo,medioInfo,capacidad")] listado_conductores listado_conductores)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(listado_conductores).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Listado_conductores");
+            }
+            ViewBag.email = new SelectList(db.usuarios, "email", "nombre", listado_conductores.email);
+            return View(listado_conductores);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
 
         // GET: cliente_listado_conductores/Create
         public ActionResult Crear()
@@ -116,6 +186,9 @@ namespace SimpleMove.Controllers
             ViewBag.email = new SelectList(db.usuarios, "email", "nombre", listado_conductores.email);
             return View(listado_conductores);
         }
+
+
+
 
         // GET: cliente_listado_conductores/Delete/5
         public ActionResult Delete(int? id)
