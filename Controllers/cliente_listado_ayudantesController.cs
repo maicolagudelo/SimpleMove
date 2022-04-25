@@ -4,11 +4,6 @@ using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 
-//Using Crystal
-using CrystalDecisions.CrystalReports.Engine;
-using CrystalDecisions.Shared;
-using SimpleMove.Reportes;
-using System.IO;
 
 namespace SimpleMove.Controllers
 {
@@ -20,29 +15,7 @@ namespace SimpleMove.Controllers
             return View();
         }
 
-        public ActionResult VerReporte()
-        {
-            var reporte = new ReportClass();
-            reporte.FileName = Server.MapPath("/Reportes/Report1.rpt");
-
-            //CONEXION REPORTE
-            var coninfo = ReportesConexion.getConexion();
-            TableLogOnInfo logoninfo = new TableLogOnInfo();
-            Tables tables;
-            tables = reporte.Database.Tables;
-            foreach (Table item in tables)
-            {
-                logoninfo = item.LogOnInfo;
-                logoninfo.ConnectionInfo = coninfo;
-                item.ApplyLogOnInfo(logoninfo);
-            }
-            Response.Buffer = false;
-            Response.ClearContent();
-            Response.ClearHeaders();
-
-            Stream stream = reporte.ExportToStream(ExportFormatType.PortableDocFormat);
-            return new FileStreamResult(stream, "application/pdf");
-        }
+        
 
         private simplemove db = new simplemove();
 
