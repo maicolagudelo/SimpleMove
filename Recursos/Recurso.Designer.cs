@@ -19,7 +19,7 @@ namespace Recursos {
     // a través de una herramienta como ResGen o Visual Studio.
     // Para agregar o quitar un miembro, edite el archivo .ResX y, a continuación, vuelva a ejecutar ResGen
     // con la opción /str o recompile su proyecto de VS.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Recurso {
@@ -61,11 +61,47 @@ namespace Recursos {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Vamos.
+        /// </summary>
+        public static string BotonIndex {
+            get {
+                return ResourceManager.GetString("BotonIndex", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Nos enfocamos en tu seguridad al momento de realizar mudanzas.
         /// </summary>
         public static string DescripciónIndex {
             get {
                 return ResourceManager.GetString("DescripciónIndex", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Contactanos.
+        /// </summary>
+        public static string LayoutContactanos {
+            get {
+                return ResourceManager.GetString("LayoutContactanos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Información.
+        /// </summary>
+        public static string LayoutInformacion {
+            get {
+                return ResourceManager.GetString("LayoutInformacion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Servicios.
+        /// </summary>
+        public static string LayoutServicios {
+            get {
+                return ResourceManager.GetString("LayoutServicios", resourceCulture);
             }
         }
     }

@@ -100,4 +100,16 @@
   <data name="DescripciónIndex" xml:space="preserve">
     <value>Nos enfocamos en tu seguridad al momento de realizar mudanzas</value>
   </data>
+  <data name="BotonIndex" xml:space="preserve">
+    <value>Vamos</value>
+  </data>
+  <data name="LayoutInformacion" xml:space="preserve">
+    <value>Información</value>
+  </data>
+  <data name="LayoutServicios" xml:space="preserve">
+    <value>Servicios</value>
+  </data>
+  <data name="LayoutContactanos" xml:space="preserve">
+    <value>Contactanos</value>
+  </data>
 </root>

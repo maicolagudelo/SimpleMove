@@ -118,6 +118,18 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="DescripciónIndex" xml:space="preserve">
-    <value>Nous nous concentrons sur votre sécurité lorsque vous faites des déménagements!</value>
+    <value>Nous nous concentrons sur votre sécurité lorsque vous faites des déménagements</value>
+  </data>
+  <data name="BotonIndex" xml:space="preserve">
+    <value>Non, allez</value>
+  </data>
+  <data name="LayoutInformacion" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="LayoutServicios" xml:space="preserve">
+    <value>Services</value>
+  </data>
+  <data name="LayoutContactanos" xml:space="preserve">
+    <value>Contactez-nous</value>
   </data>
 </root>
