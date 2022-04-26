@@ -1,0 +1,63 @@
+﻿@model SimpleMove.Models.listado_ayudantes
+
+@{
+    ViewBag.Title = "Calificacion_administrador";
+    Layout = "~/Views/Shared/_Layout_administrador.cshtml";
+}
+
+<div>
+    <h2>Conductores Disponibles</h2>
+</div>
+
+<div>
+    <dl class="dl-horizontal">
+        <div class="album py-5 bg-light">
+            <div class="container">
+
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                    <div class="col">
+                        <div class="card shadow-sm" , style="padding:10px; margin-left:60px">
+
+                            <div class="card-body" , style="margin-top:20px">
+                                <h4>
+                                    NOMBRE:
+                                </h4>
+                                <h4 style="font-family:'Arial Rounded MT'">@Html.DisplayFor(model => model.usuarios.nombre)</h4>
+                            </div>
+
+                            <div class="card-body" style="margin-top:20px">
+                                <h4>
+                                    DESCRIPCIÓN:
+                                </h4>
+                                <h4 style="font-family:'Arial Rounded MT'">@Html.DisplayFor(model => model.descripcion)</h4>
+                            </div>
+                            <div class="card-body" style="margin-top:20px">
+                                <h4>
+                                    COSTO DEL SERVICIO
+                                </h4>
+                                <h4 style="font-family:'Arial Rounded MT'">@Html.DisplayFor(model => model.costo)</h4>
+                            </div>
+                            <div class="card-body" style="margin-top:20px">
+                                <h4>
+                                    MEDIO DE INFORMACIÓN:
+                                </h4>
+                                <h4 style="font-family:'Arial Rounded MT'"> @Html.DisplayFor(model => model.medioInfo)</h4>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group" , style="margin-left:60px">
+
+                                <button type="button" class="btn btn-sm btn-outline-secondary">| @Html.ActionLink("Editar", "Editar_administradores", new { id = Model.codigo }) |</button>
+                                <button type="button" class="btn btn-sm btn-outline-secondary">| @Html.ActionLink("Eliminar", "Delete", new { id = Model.codigo }) |</button>
+                                <button type="button" class="btn btn-sm btn-outline-secondary">| @Html.ActionLink("Atras", "Listado_administradores") |</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </dl>
+</div>
+
+

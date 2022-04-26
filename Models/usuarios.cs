@@ -27,7 +27,7 @@ namespace SimpleMove.Models
 
         [StringLength(50)]
         public string tipo_usuario { get; set; }
-
+        
         public int? telefono { get; set; }
 
         [StringLength(50)]

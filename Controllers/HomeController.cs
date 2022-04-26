@@ -15,7 +15,7 @@ namespace SimpleMove.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Mudanzas simples";
 
             return View();
         }
@@ -23,6 +23,30 @@ namespace SimpleMove.Controllers
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
+
+        public ActionResult index_cliente()
+        {
+            
+            return View();
+        }
+
+        public ActionResult index_ayudante()
+        {
+
+            return View();
+        }
+
+        public ActionResult index_conductor()
+        {
+
+            return View();
+        }
+
+        public ActionResult index_administrador()
+        {
 
             return View();
         }

@@ -1,7 +1,12 @@
-﻿<!DOCTYPE html>
+﻿@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Mudanzas faciles</title>
@@ -17,19 +22,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("SimpleMove", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("SimpleMove", "Index_conductor", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Registrarse", "Create", "Registro")</li>
-                    <li>@Html.ActionLink("Log in", "Index", "Registro")</li>
-                    <li>@Html.ActionLink("Clientes", "index_cliente", "home")</li>
-                    <li>@Html.ActionLink("Ayudantes", "index_ayudante", "home")</li>
-                    <li>@Html.ActionLink("Conductor", "index_conductor", "home")</li>
-                    <li>@Html.ActionLink("Administrador", "index_administrador", "home")</li>
+                    <li>@Html.ActionLink("Home", "Index_conductor", "Home")</li>
+                    <li>@Html.ActionLink("Publicaciones", "Listado_conductores", "listado_conductores")</li>
+                    <li>@Html.ActionLink("Crear ", "Crear", "listado_conductores")</li>
                 </ul>
             </div>
         </div>

@@ -14,7 +14,6 @@ namespace SimpleMove.Models
 
         public virtual DbSet<listado_ayudantes> listado_ayudantes { get; set; }
         public virtual DbSet<listado_conductores> listado_conductores { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<usuarios> usuarios { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

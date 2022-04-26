@@ -1,0 +1,50 @@
+﻿@model IEnumerable<SimpleMove.Models.listado_ayudantes>
+@{
+    ViewBag.Title = "listado";
+    Layout = "~/Views/Shared/_Layout_ayudantes.cshtml";
+}
+<div>
+    <h2>Ayudantes Disponibles</h2>
+</div>
+
+
+
+<table class="table">
+
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <div class="album py-5 bg-light">
+                    <div class="container">
+
+                        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                            <div class="col">
+                                <div class="card shadow-sm">
+
+                                    <div class="card-body">
+                                        <h3>@Html.DisplayFor(modelItem => item.usuarios.nombre)</h3>
+                                        <p class="card-text">@Html.DisplayFor(modelItem => item.usuarios.email)</p>
+                                        <p class="card-text">@Html.DisplayFor(modelItem => item.descripcion)</p>
+
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div class="btn-group">
+
+                                                <button type="button" class="btn btn-sm btn-outline-secondary">| @Html.ActionLink("Detalles", "Calificacion_ayudante", new { id = item.codigo }) |</button>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    }
+
+</table>
+

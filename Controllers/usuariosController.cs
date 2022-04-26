@@ -10,17 +10,17 @@ using SimpleMove.Models;
 
 namespace SimpleMove.Controllers
 {
-    public class SimpleMoveController : Controller
+    public class usuariosController : Controller
     {
         private simplemove db = new simplemove();
 
-        // GET: SimpleMove
-        public ActionResult Index()
+        // GET: usuarios
+        public ActionResult Usuarios()
         {
             return View(db.usuarios.ToList());
         }
 
-        // GET: SimpleMove/Details/5
+        // GET: usuarios/Details/5
         public ActionResult Details(string id)
         {
             if (id == null)
@@ -35,13 +35,13 @@ namespace SimpleMove.Controllers
             return View(usuarios);
         }
 
-        // GET: SimpleMove/Create
+        // GET: usuarios/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: SimpleMove/Create
+        // POST: usuarios/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -58,7 +58,7 @@ namespace SimpleMove.Controllers
             return View(usuarios);
         }
 
-        // GET: SimpleMove/Edit/5
+        // GET: usuarios/Edit/5
         public ActionResult Edit(string id)
         {
             if (id == null)
@@ -73,7 +73,7 @@ namespace SimpleMove.Controllers
             return View(usuarios);
         }
 
-        // POST: SimpleMove/Edit/5
+        // POST: usuarios/Edit/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -89,7 +89,7 @@ namespace SimpleMove.Controllers
             return View(usuarios);
         }
 
-        // GET: SimpleMove/Delete/5
+        // GET: usuarios/Delete/5
         public ActionResult Delete(string id)
         {
             if (id == null)
@@ -104,7 +104,7 @@ namespace SimpleMove.Controllers
             return View(usuarios);
         }
 
-        // POST: SimpleMove/Delete/5
+        // POST: usuarios/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)

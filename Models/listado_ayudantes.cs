@@ -14,15 +14,18 @@ namespace SimpleMove.Models
         [StringLength(50)]
         public string email { get; set; }
 
-        [StringLength(50)]
+        [StringLength(500)]
         public string descripcion { get; set; }
 
         [StringLength(50)]
         public string costo { get; set; }
 
-        [StringLength(50)]
+        [StringLength(100)]
         public string medioInfo { get; set; }
-
+        public string Listados()
+        {
+                return "conectado";
+        }
         public virtual usuarios usuarios { get; set; }
     }
 }
