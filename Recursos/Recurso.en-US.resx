@@ -132,4 +132,37 @@
   <data name="LayoutContactanos" xml:space="preserve">
     <value>Contact Us</value>
   </data>
+  <data name="ConocenosIndex" xml:space="preserve">
+    <value>About us</value>
+  </data>
+  <data name="TextoConocenosIndex" xml:space="preserve">
+    <value>We are an information platform, where you can find people willing to help you with your moves, from experienced drivers, to experienced helpers and the BEST at a reasonable cost</value>
+  </data>
+  <data name="SimpleMoveText" xml:space="preserve">
+    <value>Simple Move came to be the solution of many people who do not know who to turn to when it comes to a move, with Simple Move you can contact people who are aware of the matter of moving</value>
+  </data>
+  <data name="ayudantes" xml:space="preserve">
+    <value>Assistants</value>
+  </data>
+  <data name="conductores" xml:space="preserve">
+    <value>Drivers</value>
+  </data>
+  <data name="ayudantesTexto" xml:space="preserve">
+    <value>In Simple Move you can find the right person for you, to help you with your moves</value>
+  </data>
+  <data name="ConductoresTexto" xml:space="preserve">
+    <value>In Simple Move you can find the best driver for you, to help you with your moves</value>
+  </data>
+  <data name="Suscribete" xml:space="preserve">
+    <value>Subscribe to receive notifications</value>
+  </data>
+  <data name="BotonNotificame" xml:space="preserve">
+    <value>notify me</value>
+  </data>
+  <data name="Ubicacion" xml:space="preserve">
+    <value>Location</value>
+  </data>
+  <data name="Telefono" xml:space="preserve">
+    <value>Phone</value>
+  </data>
 </root>

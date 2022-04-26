@@ -61,11 +61,65 @@ namespace Recursos {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Ayudantes.
+        /// </summary>
+        public static string ayudantes {
+            get {
+                return ResourceManager.GetString("ayudantes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a En Simple Move podrás encontrar la persona indicada para ti, para que te ayude con tus mudanzas.
+        /// </summary>
+        public static string ayudantesTexto {
+            get {
+                return ResourceManager.GetString("ayudantesTexto", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Vamos.
         /// </summary>
         public static string BotonIndex {
             get {
                 return ResourceManager.GetString("BotonIndex", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Notificame.
+        /// </summary>
+        public static string BotonNotificame {
+            get {
+                return ResourceManager.GetString("BotonNotificame", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Conductores.
+        /// </summary>
+        public static string conductores {
+            get {
+                return ResourceManager.GetString("conductores", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a En Simple Move podras encontrar el mejor conductor indicada para ti, para que te ayude con tus mudanzas.
+        /// </summary>
+        public static string ConductoresTexto {
+            get {
+                return ResourceManager.GetString("ConductoresTexto", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Conocenos.
+        /// </summary>
+        public static string ConocenosIndex {
+            get {
+                return ResourceManager.GetString("ConocenosIndex", resourceCulture);
             }
         }
         
@@ -102,6 +156,51 @@ namespace Recursos {
         public static string LayoutServicios {
             get {
                 return ResourceManager.GetString("LayoutServicios", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Simple Move llego para ser la solución de muchas personas que no saben a quien recurrir cuando de una mudanza se trata, con Simple Move puedes contactar con personas que esten enteradas del asunto de mudanzas.
+        /// </summary>
+        public static string SimpleMoveText {
+            get {
+                return ResourceManager.GetString("SimpleMoveText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Suscríbete para recibir notificaciones.
+        /// </summary>
+        public static string Suscribete {
+            get {
+                return ResourceManager.GetString("Suscribete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Teléfono.
+        /// </summary>
+        public static string Telefono {
+            get {
+                return ResourceManager.GetString("Telefono", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Somos una plataforma de información, donde podrás encontrar gente dispuesta a ayudarte con tus mudanzas, desde conductores experimentados, hasta ayudantes experimentados y lo MEJOR a un costo razonable.
+        /// </summary>
+        public static string TextoConocenosIndex {
+            get {
+                return ResourceManager.GetString("TextoConocenosIndex", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Ubicación.
+        /// </summary>
+        public static string Ubicacion {
+            get {
+                return ResourceManager.GetString("Ubicacion", resourceCulture);
             }
         }
     }

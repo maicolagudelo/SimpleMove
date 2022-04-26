@@ -112,4 +112,37 @@
   <data name="LayoutContactanos" xml:space="preserve">
     <value>Contactanos</value>
   </data>
+  <data name="ConocenosIndex" xml:space="preserve">
+    <value>Conocenos</value>
+  </data>
+  <data name="TextoConocenosIndex" xml:space="preserve">
+    <value>Somos una plataforma de información, donde podrás encontrar gente dispuesta a ayudarte con tus mudanzas, desde conductores experimentados, hasta ayudantes experimentados y lo MEJOR a un costo razonable</value>
+  </data>
+  <data name="SimpleMoveText" xml:space="preserve">
+    <value>Simple Move llego para ser la solución de muchas personas que no saben a quien recurrir cuando de una mudanza se trata, con Simple Move puedes contactar con personas que esten enteradas del asunto de mudanzas</value>
+  </data>
+  <data name="ayudantes" xml:space="preserve">
+    <value>Ayudantes</value>
+  </data>
+  <data name="conductores" xml:space="preserve">
+    <value>Conductores</value>
+  </data>
+  <data name="ayudantesTexto" xml:space="preserve">
+    <value>En Simple Move podrás encontrar la persona indicada para ti, para que te ayude con tus mudanzas</value>
+  </data>
+  <data name="ConductoresTexto" xml:space="preserve">
+    <value>En Simple Move podras encontrar el mejor conductor indicada para ti, para que te ayude con tus mudanzas</value>
+  </data>
+  <data name="Suscribete" xml:space="preserve">
+    <value>Suscríbete para recibir notificaciones</value>
+  </data>
+  <data name="BotonNotificame" xml:space="preserve">
+    <value>Notificame</value>
+  </data>
+  <data name="Ubicacion" xml:space="preserve">
+    <value>Ubicación</value>
+  </data>
+  <data name="Telefono" xml:space="preserve">
+    <value>Teléfono</value>
+  </data>
 </root>

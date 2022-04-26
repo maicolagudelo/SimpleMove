@@ -132,4 +132,37 @@
   <data name="LayoutContactanos" xml:space="preserve">
     <value>Contactez-nous</value>
   </data>
+  <data name="ConocenosIndex" xml:space="preserve">
+    <value>L’entreprise</value>
+  </data>
+  <data name="TextoConocenosIndex" xml:space="preserve">
+    <value>Nous sommes une plate-forme d’information, où vous pouvez trouver des personnes prêtes à vous aider avec vos déménagements, des chauffeurs expérimentés, aux aides expérimentées et aux MEILLEURS à un coût raisonnable</value>
+  </data>
+  <data name="SimpleMoveText" xml:space="preserve">
+    <value>Simple Move est devenu la solution de nombreuses personnes qui ne savent pas vers qui se tourner lorsqu’il s’agit d’un déménagement, avec Simple Move, vous pouvez contacter des personnes qui sont conscientes de la question du déménagement</value>
+  </data>
+  <data name="ayudantes" xml:space="preserve">
+    <value>Assistants</value>
+  </data>
+  <data name="conductores" xml:space="preserve">
+    <value>Chauffeurs</value>
+  </data>
+  <data name="ayudantesTexto" xml:space="preserve">
+    <value>Dans Simple Move, vous pouvez trouver la bonne personne pour vous, pour vous aider dans vos déménagements</value>
+  </data>
+  <data name="ConductoresTexto" xml:space="preserve">
+    <value>Dans Simple Move, vous pouvez trouver le meilleur pilote pour vous, pour vous aider dans vos mouvements</value>
+  </data>
+  <data name="Suscribete" xml:space="preserve">
+    <value>Abonnez-vous pour recevoir des notifications</value>
+  </data>
+  <data name="BotonNotificame" xml:space="preserve">
+    <value>Prévenez-moi</value>
+  </data>
+  <data name="Ubicacion" xml:space="preserve">
+    <value>Localisation</value>
+  </data>
+  <data name="Telefono" xml:space="preserve">
+    <value>Téléphone</value>
+  </data>
 </root>
