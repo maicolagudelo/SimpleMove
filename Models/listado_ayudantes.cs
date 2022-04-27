@@ -11,9 +11,6 @@ namespace SimpleMove.Models
         [Key]
         public int codigo { get; set; }
 
-        [StringLength(50)]
-        public string email { get; set; }
-
         [StringLength(500)]
         public string descripcion { get; set; }
 
@@ -22,10 +19,9 @@ namespace SimpleMove.Models
 
         [StringLength(100)]
         public string medioInfo { get; set; }
-        public string Listados()
-        {
-                return "conectado";
-        }
+
+        public long telefono { get; set; }
+
         public virtual usuarios usuarios { get; set; }
     }
 }
