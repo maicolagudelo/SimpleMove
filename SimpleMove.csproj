@@ -153,6 +153,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\listado_ayudantesController.cs" />
     <Compile Include="Controllers\listado_conductoresController.cs" />
+    <Compile Include="Controllers\usuariosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -225,7 +226,6 @@
     <Content Include="Views\usuarios\Delete.cshtml" />
     <Content Include="Views\usuarios\Details.cshtml" />
     <Content Include="Views\usuarios\Edit.cshtml" />
-    <Content Include="Views\usuarios\Usuarios.cshtml" />
     <Content Include="Views\listado_conductores\Listado_administradores.cshtml" />
     <Content Include="Views\listado_conductores\Calificacion_administradores.cshtml" />
     <Content Include="Views\listado_conductores\Editar_administradores.cshtml" />
@@ -240,6 +240,7 @@
     <Content Include="Views\listado_ayudantes\Listado.cshtml" />
     <Content Include="Views\listado_ayudantes\Listado_administradores.cshtml" />
     <Content Include="Views\listado_ayudantes\Listado_ayudante.cshtml" />
+    <Content Include="Views\usuarios\Usuario.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

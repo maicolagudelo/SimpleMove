@@ -1,0 +1,65 @@
+﻿@model IEnumerable<SimpleMove.Models.usuarios>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Usuario</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.tipo_usuarios.usuario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.contraseña)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.apellido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.direccion)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.tipo_usuarios.usuario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.contraseña)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.apellido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.direccion)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.telefono }) |
+                @Html.ActionLink("Details", "Details", new { id=item.telefono }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.telefono })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

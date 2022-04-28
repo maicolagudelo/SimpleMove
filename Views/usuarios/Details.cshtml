@@ -17,6 +17,22 @@
         <hr />
         <dl class="dl-horizontal">
             <dt>
+                @Html.DisplayNameFor(model => model.tipo_usuarios.usuario)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.tipo_usuarios.usuario)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.contraseña)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.contraseña)
+            </dd>
+    
+            <dt>
                 @Html.DisplayNameFor(model => model.nombre)
             </dt>
     
@@ -33,22 +49,6 @@
             </dd>
     
             <dt>
-                @Html.DisplayNameFor(model => model.tipo_usuario)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.tipo_usuario)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.telefono)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.telefono)
-            </dd>
-    
-            <dt>
                 @Html.DisplayNameFor(model => model.direccion)
             </dt>
     
@@ -59,7 +59,7 @@
         </dl>
     </div>
     <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.email }) |
+        @Html.ActionLink("Edit", "Edit", new { id = Model.telefono }) |
         @Html.ActionLink("Back to List", "Index")
     </p>
 </body>
