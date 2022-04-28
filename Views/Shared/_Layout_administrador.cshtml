@@ -26,10 +26,10 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="~/Views/Home/index_administrador.cshtml">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="~/Views/usuarios/Usuarios.cshtml">Usuarios</a></li>
-                    <li class="nav-item"><a class="nav-link" href="~/Views/listado_ayudantes/Listado_administradores.cshtml">Listado ayudante</a></li>
-                    <li class="nav-item"><a class="nav-link" href="~/Views/listado_conductores/Listado_administradores.cshtml">Listado conductores</a></li>
+                    <li class="nav-item"><a class="nav-link" href="*">@Html.ActionLink("Home", "Index_administrador", "Home")</a></li>
+                    <li class="nav-item"><a class="nav-link" href="*">@Html.ActionLink("Usuarios", "Usuario", "usuarios")</a></li>
+                    <li class="nav-item"><a class="nav-link" href="*">@Html.ActionLink("Listado Ayudantes", "Listado_administradores", "listado_ayudantes")</a></li>
+                    <li class="nav-item"><a class="nav-link" href="*">@Html.ActionLink("Listado conductores", "Listado_administradores", "listado_conductores")</a></li>
                 </ul>
             </div>
         </div>
