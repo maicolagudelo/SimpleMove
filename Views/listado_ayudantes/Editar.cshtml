@@ -25,10 +25,10 @@
             @Html.HiddenFor(model => model.codigo)
 
             <div class="form-group">
-                @Html.LabelFor(model => model.email, "nombre", htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.LabelFor(model => model.telefono, "nombre", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.DropDownList("email", null, htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+                    @Html.DropDownList("telefono", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.telefono, "", new { @class = "text-danger" })
                 </div>
             </div>
 

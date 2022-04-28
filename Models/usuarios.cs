@@ -16,21 +16,21 @@ namespace SimpleMove.Models
         }
 
         [Key]
-        [StringLength(50)]
-        public string email { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public long telefono { get; set; }
 
-        [StringLength(50)]
+        [StringLength(200)]
+        public string contraseña { get; set; }
+
+        public int tipo_usuario { get; set; }
+
+        [StringLength(100)]
         public string nombre { get; set; }
 
-        [StringLength(50)]
+        [StringLength(100)]
         public string apellido { get; set; }
 
-        [StringLength(50)]
-        public string tipo_usuario { get; set; }
-        
-        public int? telefono { get; set; }
-
-        [StringLength(50)]
+        [StringLength(100)]
         public string direccion { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -38,5 +38,7 @@ namespace SimpleMove.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<listado_conductores> listado_conductores { get; set; }
+
+        public virtual tipo_usuarios tipo_usuarios { get; set; }
     }
 }

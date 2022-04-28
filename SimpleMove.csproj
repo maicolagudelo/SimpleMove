@@ -150,10 +150,9 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\listado_ayudantesController.cs" />
     <Compile Include="Controllers\listado_conductoresController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\RegistroController.cs" />
     <Compile Include="Controllers\usuariosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -161,6 +160,8 @@
     <Compile Include="Models\listado_ayudantes.cs" />
     <Compile Include="Models\listado_conductores.cs" />
     <Compile Include="Models\simplemove.cs" />
+    <Compile Include="Models\sysdiagrams.cs" />
+    <Compile Include="Models\tipo_usuarios.cs" />
     <Compile Include="Models\usuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Recursos\Recurso.Designer.cs">
@@ -201,16 +202,12 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Registro\Create.cshtml" />
     <Content Include="Views\Registro\Delete.cshtml" />
     <Content Include="Views\Registro\Details.cshtml" />
     <Content Include="Views\Registro\Edit.cshtml" />
     <Content Include="Views\Registro\Index.cshtml" />
-    <Content Include="Views\listado_ayudantes\Calificacion.cshtml" />
-    <Content Include="Views\listado_ayudantes\Listado.cshtml" />
     <Content Include="Views\Home\index_cliente.cshtml" />
     <Content Include="Views\Home\index_ayudante.cshtml" />
     <Content Include="Views\Home\index_conductor.cshtml" />
@@ -218,11 +215,7 @@
     <Content Include="Views\listado_conductores\Listado.cshtml" />
     <Content Include="Views\listado_conductores\Calificacion.cshtml" />
     <Content Include="Views\Shared\_Layout_clientes.cshtml" />
-    <Content Include="Views\listado_ayudantes\Crear.cshtml" />
     <Content Include="Views\Shared\_Layout_ayudantes.cshtml" />
-    <Content Include="Views\listado_ayudantes\Listado_ayudante.cshtml" />
-    <Content Include="Views\listado_ayudantes\Calificacion_ayudante.cshtml" />
-    <Content Include="Views\listado_ayudantes\Editar.cshtml" />
     <Content Include="Views\listado_conductores\Listado_conductores.cshtml" />
     <Content Include="Views\Shared\_layout_conductores.cshtml" />
     <Content Include="Views\Shared\_Layout_administrador.cshtml" />
@@ -233,15 +226,21 @@
     <Content Include="Views\usuarios\Delete.cshtml" />
     <Content Include="Views\usuarios\Details.cshtml" />
     <Content Include="Views\usuarios\Edit.cshtml" />
-    <Content Include="Views\usuarios\Usuarios.cshtml" />
-    <Content Include="Views\listado_ayudantes\Editar_administradores.cshtml" />
-    <Content Include="Views\listado_ayudantes\Calificacion_administrador.cshtml" />
-    <Content Include="Views\listado_ayudantes\Listado_administradores.cshtml" />
-    <Content Include="Views\listado_ayudantes\Delete.cshtml" />
     <Content Include="Views\listado_conductores\Listado_administradores.cshtml" />
     <Content Include="Views\listado_conductores\Calificacion_administradores.cshtml" />
     <Content Include="Views\listado_conductores\Editar_administradores.cshtml" />
     <Content Include="Views\listado_conductores\Delete.cshtml" />
+    <Content Include="Views\listado_ayudantes\Calificacion.cshtml" />
+    <Content Include="Views\listado_ayudantes\Calificacion_administrador.cshtml" />
+    <Content Include="Views\listado_ayudantes\Calificacion_ayudante.cshtml" />
+    <Content Include="Views\listado_ayudantes\Crear.cshtml" />
+    <Content Include="Views\listado_ayudantes\Delete.cshtml" />
+    <Content Include="Views\listado_ayudantes\Editar.cshtml" />
+    <Content Include="Views\listado_ayudantes\Editar_administradores.cshtml" />
+    <Content Include="Views\listado_ayudantes\Listado.cshtml" />
+    <Content Include="Views\listado_ayudantes\Listado_administradores.cshtml" />
+    <Content Include="Views\listado_ayudantes\Listado_ayudante.cshtml" />
+    <Content Include="Views\usuarios\Usuario.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

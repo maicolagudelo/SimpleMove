@@ -14,6 +14,7 @@ namespace SimpleMove.Controllers
     {
         private simplemove db = new simplemove();
 
+
         // Cliente
         public ActionResult Listado()
         {
@@ -41,9 +42,6 @@ namespace SimpleMove.Controllers
 
 
 
-
-
-
         // Ayudante
         public ActionResult Listado_ayudante()
         {
@@ -65,18 +63,20 @@ namespace SimpleMove.Controllers
             return View(listado_ayudantes);
         }
 
+
+
         public ActionResult Crear()
         {
-            ViewBag.email = new SelectList(db.usuarios, "email", "nombre");
+            ViewBag.telefono = new SelectList(db.usuarios, "telefono", "contraseña");
             return View();
         }
 
-        // POST: cliente_ayudante/Create
+        // POST: listado_ayudantes/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Crear([Bind(Include = "codigo,email,descripcion,costo,medioInfo")] listado_ayudantes listado_ayudantes)
+        public ActionResult Crear([Bind(Include = "codigo,descripcion,costo,medioInfo,telefono")] listado_ayudantes listado_ayudantes)
         {
             if (ModelState.IsValid)
             {
@@ -85,12 +85,11 @@ namespace SimpleMove.Controllers
                 return RedirectToAction("listado_ayudante");
             }
 
-            ViewBag.email = new SelectList(db.usuarios, "email", "nombre", listado_ayudantes.email);
+            ViewBag.telefono = new SelectList(db.usuarios, "telefono", "contraseña", listado_ayudantes.telefono);
             return View(listado_ayudantes);
         }
 
-
-        // GET: cliente_ayudante/Edit/5
+        // GET: listado_ayudantes/Edit/5
         public ActionResult Editar(int? id)
         {
             if (id == null)
@@ -102,16 +101,16 @@ namespace SimpleMove.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.email = new SelectList(db.usuarios, "email", "nombre", listado_ayudantes.email);
+            ViewBag.telefono = new SelectList(db.usuarios, "telefono", "contraseña", listado_ayudantes.telefono);
             return View(listado_ayudantes);
         }
 
-        // POST: cliente_ayudante/Edit/5
+        // POST: listado_ayudantes/Edit/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Editar([Bind(Include = "codigo,email,descripcion,costo,medioInfo")] listado_ayudantes listado_ayudantes)
+        public ActionResult Editar([Bind(Include = "codigo,descripcion,costo,medioInfo,telefono")] listado_ayudantes listado_ayudantes)
         {
             if (ModelState.IsValid)
             {
@@ -119,13 +118,11 @@ namespace SimpleMove.Controllers
                 db.SaveChanges();
                 return RedirectToAction("listado_ayudante");
             }
-            ViewBag.email = new SelectList(db.usuarios, "email", "nombre", listado_ayudantes.email);
+            ViewBag.telefono = new SelectList(db.usuarios, "telefono", "contraseña", listado_ayudantes.telefono);
             return View(listado_ayudantes);
         }
 
-
-
-
+       
 
 
         // Administrador
@@ -149,8 +146,8 @@ namespace SimpleMove.Controllers
             return View(listado_ayudantes);
         }
 
-        
-        // GET: cliente_ayudante/Edit/5
+
+
         public ActionResult Editar_administradores(int? id)
         {
             if (id == null)
@@ -162,16 +159,16 @@ namespace SimpleMove.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.email = new SelectList(db.usuarios, "email", "nombre", listado_ayudantes.email);
+            ViewBag.telefono = new SelectList(db.usuarios, "telefono", "contraseña", listado_ayudantes.telefono);
             return View(listado_ayudantes);
         }
 
-        // POST: cliente_ayudante/Edit/5
+        // POST: listado_ayudantes/Edit/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Editar_administradores([Bind(Include = "codigo,email,descripcion,costo,medioInfo")] listado_ayudantes listado_ayudantes)
+        public ActionResult Editar_administradores([Bind(Include = "codigo,descripcion,costo,medioInfo,telefono")] listado_ayudantes listado_ayudantes)
         {
             if (ModelState.IsValid)
             {
@@ -179,9 +176,10 @@ namespace SimpleMove.Controllers
                 db.SaveChanges();
                 return RedirectToAction("listado_administradores");
             }
-            ViewBag.email = new SelectList(db.usuarios, "email", "nombre", listado_ayudantes.email);
+            ViewBag.telefono = new SelectList(db.usuarios, "telefono", "contraseña", listado_ayudantes.telefono);
             return View(listado_ayudantes);
         }
+
 
         // GET: cliente_ayudante/Delete/5
         public ActionResult Delete(int? id)

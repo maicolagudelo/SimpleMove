@@ -13,19 +13,7 @@ namespace SimpleMove.Controllers
             return View();
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Mudanzas simples";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
+        
 
         public ActionResult index_cliente()
         {

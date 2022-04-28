@@ -11,9 +11,6 @@ namespace SimpleMove.Models
         [Key]
         public int codigo { get; set; }
 
-        [StringLength(50)]
-        public string email { get; set; }
-
         [StringLength(500)]
         public string descripcion { get; set; }
 
@@ -25,6 +22,8 @@ namespace SimpleMove.Models
 
         [StringLength(200)]
         public string capacidad { get; set; }
+
+        public long telefono { get; set; }
 
         public virtual usuarios usuarios { get; set; }
     }

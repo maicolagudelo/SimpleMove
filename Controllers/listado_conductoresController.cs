@@ -14,8 +14,7 @@ namespace SimpleMove.Controllers
     {
         private simplemove db = new simplemove();
 
-
-        // GET: cliente
+        // cliente
         public ActionResult Listado()
         {
             var listado_conductores = db.listado_conductores.Include(l => l.usuarios);
@@ -36,11 +35,6 @@ namespace SimpleMove.Controllers
             }
             return View(listado_conductores);
         }
-
-
-
-
-
 
 
         // conductores
@@ -67,19 +61,23 @@ namespace SimpleMove.Controllers
 
         }
 
-        // GET: cliente_listado_conductores/Create
+
+
+
+
+        // GET: listado_conductores/Create
         public ActionResult Crear()
         {
-            ViewBag.email = new SelectList(db.usuarios, "email", "nombre");
+            ViewBag.telefono = new SelectList(db.usuarios, "telefono", "contraseña");
             return View();
         }
 
-        // POST: cliente_listado_conductores/Create
+        // POST: listado_conductores/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Crear([Bind(Include = "codigo,email,descripcion,costo,medioInfo,capacidad")] listado_conductores listado_conductores)
+        public ActionResult Crear([Bind(Include = "codigo,descripcion,costo,medioInfo,capacidad,telefono")] listado_conductores listado_conductores)
         {
             if (ModelState.IsValid)
             {
@@ -88,11 +86,12 @@ namespace SimpleMove.Controllers
                 return RedirectToAction("Listado_conductores");
             }
 
-            ViewBag.email = new SelectList(db.usuarios, "email", "nombre", listado_conductores.email);
+            ViewBag.telefono = new SelectList(db.usuarios, "telefono", "contraseña", listado_conductores.telefono);
             return View(listado_conductores);
         }
 
-        // GET: cliente_listado_conductores/Edit/5
+
+        // GET: listado_conductores/Edit/5
         public ActionResult Editar(int? id)
         {
             if (id == null)
@@ -104,16 +103,16 @@ namespace SimpleMove.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.email = new SelectList(db.usuarios, "email", "nombre", listado_conductores.email);
+            ViewBag.telefono = new SelectList(db.usuarios, "telefono", "contraseña", listado_conductores.telefono);
             return View(listado_conductores);
         }
 
-        // POST: cliente_listado_conductores/Edit/5
+        // POST: listado_conductores/Edit/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Editar([Bind(Include = "codigo,email,descripcion,costo,medioInfo,capacidad")] listado_conductores listado_conductores)
+        public ActionResult Editar([Bind(Include = "codigo,descripcion,costo,medioInfo,capacidad,telefono")] listado_conductores listado_conductores)
         {
             if (ModelState.IsValid)
             {
@@ -121,9 +120,12 @@ namespace SimpleMove.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Listado_conductores");
             }
-            ViewBag.email = new SelectList(db.usuarios, "email", "nombre", listado_conductores.email);
+            ViewBag.telefono = new SelectList(db.usuarios, "telefono", "contraseña", listado_conductores.telefono);
             return View(listado_conductores);
         }
+
+
+
 
 
 
@@ -150,7 +152,7 @@ namespace SimpleMove.Controllers
             return View(listado_conductores);
         }
 
-
+        // GET: listado_conductores/Edit/5
         public ActionResult Editar_administradores(int? id)
         {
             if (id == null)
@@ -162,16 +164,16 @@ namespace SimpleMove.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.email = new SelectList(db.usuarios, "email", "nombre", listado_conductores.email);
+            ViewBag.telefono = new SelectList(db.usuarios, "telefono", "contraseña", listado_conductores.telefono);
             return View(listado_conductores);
         }
 
-        // POST: cliente_listado_conductores/Edit/5
+        // POST: listado_conductores/Edit/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Editar_administradores([Bind(Include = "codigo,email,descripcion,costo,medioInfo,capacidad")] listado_conductores listado_conductores)
+        public ActionResult Editar_administradores([Bind(Include = "codigo,descripcion,costo,medioInfo,capacidad,telefono")] listado_conductores listado_conductores)
         {
             if (ModelState.IsValid)
             {
@@ -179,12 +181,13 @@ namespace SimpleMove.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Listado_administradores");
             }
-            ViewBag.email = new SelectList(db.usuarios, "email", "nombre", listado_conductores.email);
+            ViewBag.telefono = new SelectList(db.usuarios, "telefono", "contraseña", listado_conductores.telefono);
             return View(listado_conductores);
         }
 
 
-        // GET: cliente_listado_conductores/Delete/5
+
+        // GET: listado_conductores/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -199,7 +202,7 @@ namespace SimpleMove.Controllers
             return View(listado_conductores);
         }
 
-        // POST: cliente_listado_conductores/Delete/5
+        // POST: listado_conductores/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
@@ -209,6 +212,11 @@ namespace SimpleMove.Controllers
             db.SaveChanges();
             return RedirectToAction("Listado_administradores");
         }
+
+
+
+
+
 
 
         protected override void Dispose(bool disposing)

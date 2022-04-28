@@ -15,13 +15,14 @@ namespace SimpleMove.Controllers
         private simplemove db = new simplemove();
 
         // GET: usuarios
-        public ActionResult Usuarios()
+        
+        public ActionResult Usuario()
         {
-            return View(db.usuarios.ToList());
+            var usuarios = db.usuarios.Include(u => u.tipo_usuarios);
+            return View(usuarios.ToList());
         }
-
         // GET: usuarios/Details/5
-        public ActionResult Details(string id)
+        public ActionResult Details(long? id)
         {
             if (id == null)
             {
@@ -38,6 +39,7 @@ namespace SimpleMove.Controllers
         // GET: usuarios/Create
         public ActionResult Create()
         {
+            ViewBag.tipo_usuario = new SelectList(db.tipo_usuarios, "tipo_usuario", "usuario");
             return View();
         }
 
@@ -46,20 +48,21 @@ namespace SimpleMove.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "email,nombre,apellido,tipo_usuario,telefono,direccion")] usuarios usuarios)
+        public ActionResult Create([Bind(Include = "telefono,contraseña,tipo_usuario,nombre,apellido,direccion")] usuarios usuarios)
         {
             if (ModelState.IsValid)
             {
                 db.usuarios.Add(usuarios);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Usuario");
             }
 
+            ViewBag.tipo_usuario = new SelectList(db.tipo_usuarios, "tipo_usuario", "usuario", usuarios.tipo_usuario);
             return View(usuarios);
         }
 
         // GET: usuarios/Edit/5
-        public ActionResult Edit(string id)
+        public ActionResult Edit(long? id)
         {
             if (id == null)
             {
@@ -70,6 +73,7 @@ namespace SimpleMove.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.tipo_usuario = new SelectList(db.tipo_usuarios, "tipo_usuario", "usuario", usuarios.tipo_usuario);
             return View(usuarios);
         }
 
@@ -78,19 +82,20 @@ namespace SimpleMove.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "email,nombre,apellido,tipo_usuario,telefono,direccion")] usuarios usuarios)
+        public ActionResult Edit([Bind(Include = "telefono,contraseña,tipo_usuario,nombre,apellido,direccion")] usuarios usuarios)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(usuarios).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Usuario");
             }
+            ViewBag.tipo_usuario = new SelectList(db.tipo_usuarios, "tipo_usuario", "usuario", usuarios.tipo_usuario);
             return View(usuarios);
         }
 
         // GET: usuarios/Delete/5
-        public ActionResult Delete(string id)
+        public ActionResult Delete(long? id)
         {
             if (id == null)
             {
@@ -107,12 +112,12 @@ namespace SimpleMove.Controllers
         // POST: usuarios/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(string id)
+        public ActionResult DeleteConfirmed(long id)
         {
             usuarios usuarios = db.usuarios.Find(id);
             db.usuarios.Remove(usuarios);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Usuario");
         }
 
         protected override void Dispose(bool disposing)
