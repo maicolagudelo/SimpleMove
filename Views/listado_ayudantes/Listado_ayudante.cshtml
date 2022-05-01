@@ -1,50 +1,48 @@
 ﻿@model IEnumerable<SimpleMove.Models.listado_ayudantes>
 @{
-    ViewBag.Title = "listado";
+    
     Layout = "~/Views/Shared/_Layout_ayudantes.cshtml";
 }
-<div>
-    <h2>Ayudantes Disponibles</h2>
-</div>
+<section class="full-box dashboard-contentPage">
+    <div class="container-fluid">
+        <div class="page-header">
+            <h1 class="text-titles">Publicaciones </h1>
+        </div>
+    </div>
 
+    <table class="table">
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <div class="album py-5 bg-light">
+                        <div class="container">
 
+                            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                                <div class="col">
+                                    <div class="card shadow-sm">
 
-<table class="table">
+                                        <div class="card-body">
+                                            <h3>@Html.DisplayFor(modelItem => item.usuarios.nombre)</h3>
+                                            <p class="card-text">@Html.DisplayFor(modelItem => item.usuarios.telefono)</p>
+                                            <p class="card-text">@Html.DisplayFor(modelItem => item.descripcion)</p>
 
-
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                <div class="album py-5 bg-light">
-                    <div class="container">
-
-                        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                            <div class="col">
-                                <div class="card shadow-sm">
-
-                                    <div class="card-body">
-                                        <h3>@Html.DisplayFor(modelItem => item.usuarios.nombre)</h3>
-                                        <p class="card-text">@Html.DisplayFor(modelItem => item.usuarios.telefono)</p>
-                                        <p class="card-text">@Html.DisplayFor(modelItem => item.descripcion)</p>
-
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <div class="btn-group">
-
-                                                <button type="button" class="btn btn-sm btn-outline-secondary">| @Html.ActionLink("Detalles", "Calificacion_ayudante", new { id = item.codigo }) |</button>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div class="btn-group">
+                                                    <button href="#!" class="btn btn-info btn-raised btn-sm" style="background-color: #96FEF3 ">| @Html.ActionLink("Detalles", "Calificacion_ayudante", new { id = item.codigo }) |</button>
+                                                </div>
                                             </div>
-
                                         </div>
                                     </div>
                                 </div>
-                            </div>
 
+                            </div>
                         </div>
                     </div>
-                </div>
-            </td>
-        </tr>
-    }
+                </td>
+            </tr>
+        }
 
-</table>
+    </table>
 
+</section>

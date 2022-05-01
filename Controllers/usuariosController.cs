@@ -56,6 +56,7 @@ namespace SimpleMove.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Usuario");
             }
+            
 
             ViewBag.tipo_usuario = new SelectList(db.tipo_usuarios, "tipo_usuario", "usuario", usuarios.tipo_usuario);
             return View(usuarios);

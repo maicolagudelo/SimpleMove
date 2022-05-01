@@ -122,8 +122,31 @@ namespace SimpleMove.Controllers
             return View(listado_ayudantes);
         }
 
-       
 
+        public ActionResult Delete_ayudante(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            listado_ayudantes listado_ayudantes = db.listado_ayudantes.Find(id);
+            if (listado_ayudantes == null)
+            {
+                return HttpNotFound();
+            }
+            return View(listado_ayudantes);
+        }
+
+        // POST: cliente_ayudante/Delete/5
+        [HttpPost, ActionName("Delete_ayudante")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed_ayudante(int id)
+        {
+            listado_ayudantes listado_ayudantes = db.listado_ayudantes.Find(id);
+            db.listado_ayudantes.Remove(listado_ayudantes);
+            db.SaveChanges();
+            return RedirectToAction("Listado_ayudante");
+        }
 
         // Administrador
         public ActionResult Listado_administradores()

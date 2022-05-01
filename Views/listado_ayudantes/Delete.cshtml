@@ -4,61 +4,58 @@
     Layout = "~/Views/Shared/_Layout_administrador.cshtml";
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Delete</title>
-</head>
-<body>
-    
-    <div>
-        
-        <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.usuarios.nombre)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.usuarios.nombre)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.descripcion)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.descripcion)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.costo)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.costo)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.medioInfo)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.medioInfo)
-            </dd>
-    
-        </dl>
-    
-        @using (Html.BeginForm()) {
-            @Html.AntiForgeryToken()
-    
-            <div class="form-actions no-color">
-                <input type="submit" value="Delete" class="btn btn-default" /> |
-                <button type="button" class="btn btn-sm btn-outline-secondary">| @Html.ActionLink("Atras", "Listado_administradores") |</button>
-            </div>
-        }
+<section class="full-box dashboard-contentPage">
+    <div class="container-fluid">
+        <div class="page-header">
+            <h1 class="text-titles">Ayudantes Disponibles </h1>
+        </div>
     </div>
-</body>
-</html>
+
+
+    <dl class="dl-horizontal">
+        <div class="album py-5 bg-light">
+            <div class="container">
+                <div class="text-center">
+                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                        <div class="col">
+                            <div class="card shadow-sm" , style="padding:10px; margin-left:60px">
+
+                                <div class="card-body" , style="margin-top:20px">
+                                    <h4 style="font-family:'Arial Rounded MT'">
+                                        NOMBRE:
+                                    </h4>
+                                    <h4>@Html.DisplayFor(model => model.usuarios.nombre)</h4>
+
+                                    <h4 style="font-family:'Arial Rounded MT'">
+                                        DESCRIPCIÓN:
+                                    </h4>
+                                    <h4>@Html.DisplayFor(model => model.descripcion)</h4>
+
+                                    <h4 style="font-family:'Arial Rounded MT'">
+                                        COSTO DEL SERVICIO
+                                    </h4>
+                                    <h4>@Html.DisplayFor(model => model.costo)</h4>
+
+                                    <h4 style="font-family:'Arial Rounded MT'">
+                                        MEDIO DE INFORMACIÓN:
+                                    </h4>
+                                    <h4> @Html.DisplayFor(model => model.medioInfo)</h4>
+
+                                </div>
+
+                                @using (Html.BeginForm())
+                                {
+                                    @Html.AntiForgeryToken()
+                                    <button href="#!" class="btn btn-info btn-raised btn-sm" style="background-color: red ">Eliminar</button>
+                                    
+
+                               }
+                               <button href="#!" class="btn btn-info btn-raised btn-sm" style="background-color: #96FEF3 ">| @Html.ActionLink("Atras", "Listado_administradores") |</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </dl>
+
+</section>

@@ -3,27 +3,24 @@
 @{
     Layout = "~/Views/Shared/_Layout_administrador.cshtml";
 }
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Editar</title>
-</head>
-<body>
+<section class="full-box dashboard-contentPage">
+    <div class="container-fluid">
+        <div class="page-header">
+            <h1 class="text-titles">Ayudantes Disponibles </h1>
+        </div>
+    </div>
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
 
-        <div class="form-horizontal">
+        <div class="form-horizontal" style="font-family:'Arial Rounded MT'">
 
-            <hr />
+            
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             @Html.HiddenFor(model => model.codigo)
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.telefono, "nombre", htmlAttributes: new { @class = "control-label col-md-2" })
+             <div class="form-group">
+                <label class="control-label col-md-2" style="font-size:20px;color:black">Telefono</label>
                 <div class="col-md-10">
                     @Html.DropDownList("telefono", null, htmlAttributes: new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.telefono, "", new { @class = "text-danger" })
@@ -31,7 +28,7 @@
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.descripcion, htmlAttributes: new { @class = "control-label col-md-2" })
+                <label class="control-label col-md-2" style="font-size:20px;color:black">Descripcion</label>
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.descripcion, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.descripcion, "", new { @class = "text-danger" })
@@ -39,7 +36,7 @@
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.costo, htmlAttributes: new { @class = "control-label col-md-2" })
+                <label class="control-label col-md-2" style="font-size:20px;color:black">Costo</label>
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.costo, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.costo, "", new { @class = "text-danger" })
@@ -47,25 +44,18 @@
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.medioInfo, "Medio de Informacion", htmlAttributes: new { @class = "control-label col-md-2" })
+                <label class="control-label col-md-2" style="font-size:20px;color:black">Medio Informacion</label>
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.medioInfo, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.medioInfo, "", new { @class = "text-danger" })
                 </div>
             </div>
+            <p class="text-center">
+                <button href="#!" class="btn btn-info btn-raised btn-sm">Guardar</button>
+                <button href="#!" class="btn btn-info btn-raised btn-sm" style="background-color: #96FEF3 ">| @Html.ActionLink("Atras", "Listado_administradores") |</button>
+            </p>
 
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Guardar" class="btn btn-default" />
-                </div>
-            </div>
         </div>
     }
 
-    <div>
-        <button type="button" class="btn btn-sm btn-outline-secondary">| @Html.ActionLink("Atras", "Listado_administradores") |</button>
-    </div>
-
-</body>
-</html>
-
+</section>
