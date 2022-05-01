@@ -124,6 +124,31 @@ namespace SimpleMove.Controllers
             return View(listado_conductores);
         }
 
+        public ActionResult Delete_conductores(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            listado_conductores listado_conductores = db.listado_conductores.Find(id);
+            if (listado_conductores == null)
+            {
+                return HttpNotFound();
+            }
+            return View(listado_conductores);
+        }
+
+        // POST: listado_conductores/Delete/5
+        [HttpPost, ActionName("Delete_conductores")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed_conductores(int id)
+        {
+            listado_conductores listado_conductores = db.listado_conductores.Find(id);
+            db.listado_conductores.Remove(listado_conductores);
+            db.SaveChanges();
+            return RedirectToAction("Listado_conductores");
+        }
+
 
 
 

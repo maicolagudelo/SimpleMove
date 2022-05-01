@@ -20,10 +20,20 @@ namespace SimpleMove
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Content/js/scripts.js"));
+                      "~/Content/js/scripts.js",
+                      "~/Content/js/jquery-3.1.1.min.js",
+                      "~/Content/js/sweetalert2.min.js",
+                      "~/Content/js/bootstrap.min.js",
+                      "~/Content/js/material.min.js",
+                      "~/Content/js/ripples.min.js",
+                      "~/Content/js/jquery.mCustomScrollbar.concat.min.js",
+                      "~/Content/js/main.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/css/styles.css"));
+
+            bundles.Add(new StyleBundle("~/Conten/css").Include(
+                      "~/Content/css/main.css"));
         }
     }
 }

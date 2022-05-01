@@ -172,20 +172,53 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\assets\favicon.ico" />
+    <Content Include="Content\assets\icons\mCSB_buttons.png" />
+    <Content Include="Content\assets\img\avatar.jpg" />
     <Content Include="Content\assets\img\bg-masthead.jpg" />
     <Content Include="Content\assets\img\bg-signup.jpg" />
     <Content Include="Content\assets\img\demo-image-01.jpg" />
     <Content Include="Content\assets\img\demo-image-02.jpg" />
     <Content Include="Content\assets\img\ipad.png" />
+    <Content Include="Content\assets\img\loginFont.jpg" />
+    <Content Include="Content\assets\img\sideBar-font.jpg" />
+    <Content Include="Content\css\bootstrap-material-design.min.css" />
+    <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\jquery.mCustomScrollbar.css" />
+    <Content Include="Content\css\main.css" />
+    <Content Include="Content\css\material-design-iconic-font.min.css" />
+    <Content Include="Content\css\ripples.min.css" />
     <Content Include="Content\css\styles.css" />
+    <Content Include="Content\css\sweetalert2.css" />
+    <Content Include="Content\js\bootstrap.min.js" />
+    <Content Include="Content\js\jquery-3.1.1.min.js" />
+    <Content Include="Content\js\jquery.mCustomScrollbar.concat.min.js" />
+    <Content Include="Content\js\main.js" />
+    <Content Include="Content\js\material.min.js" />
+    <Content Include="Content\js\ripples.min.js" />
     <Content Include="Content\js\scripts.js" />
+    <Content Include="Content\js\sweetalert2.min.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\Material-Design-Iconic-Font.svg" />
+    <Content Include="fonts\robotocondensed-light.svg" />
+    <Content Include="fonts\robotocondensed-regular.svg" />
     <Content Include="Global.asax" />
     <None Include="Dockerfile" />
     <None Include=".dockerignore">
       <DependentUpon>Dockerfile</DependentUpon>
     </None>
+    <Content Include="fonts\Material-Design-Iconic-Font.eot" />
+    <Content Include="fonts\Material-Design-Iconic-Font.ttf" />
+    <Content Include="fonts\Material-Design-Iconic-Font.woff" />
+    <Content Include="fonts\Material-Design-Iconic-Font.woff2" />
+    <Content Include="fonts\robotocondensed-light.eot" />
+    <Content Include="fonts\robotocondensed-light.ttf" />
+    <Content Include="fonts\robotocondensed-light.woff" />
+    <Content Include="fonts\robotocondensed-light.woff2" />
+    <Content Include="fonts\robotocondensed-regular.eot" />
+    <Content Include="fonts\robotocondensed-regular.ttf" />
+    <Content Include="fonts\robotocondensed-regular.woff" />
+    <Content Include="fonts\robotocondensed-regular.woff2" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery.validate.js" />
@@ -241,6 +274,9 @@
     <Content Include="Views\listado_ayudantes\Listado_administradores.cshtml" />
     <Content Include="Views\listado_ayudantes\Listado_ayudante.cshtml" />
     <Content Include="Views\usuarios\Usuario.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\listado_ayudantes\Delete_ayudante.cshtml" />
+    <Content Include="Views\listado_conductores\Delete_conductores.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
