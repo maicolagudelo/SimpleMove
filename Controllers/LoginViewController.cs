@@ -40,8 +40,7 @@ namespace SimpleMove.Controllers
                     }
                     else
                     {
-                        msg = "Usuario o Contraseña incorrecta";
-                       ViewBag.mensaje = msg;
+                        
                         return View();
                     }
                 }
