@@ -1,0 +1,57 @@
+﻿@model SimpleMove.Models.usuarios
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+<section class="about-section text-center" id="about">
+    <div class="container-fluid">
+        <div class="page-header">
+            <h2 class="text-white mb-4">Bienvenido</h2>
+</div>
+    </div>
+    @using (Html.BeginForm("login", "LoginView", FormMethod.Post))
+    {
+        <fieldset>
+            @*  *@
+
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+            @if (@ViewBag.Message != null)
+            {
+                <div style="border: 1px solid red">
+                    @ViewBag.Message
+                </div>
+            }
+            <div>
+                <table class="text-white mb-4">
+                    <tr>
+                        <td>@Html.LabelFor(a => a.telefono)</td>
+                        <td>@Html.TextBoxFor(a => a.telefono)</td>
+                        <td>@Html.ValidationMessageFor(a => a.telefono)</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.LabelFor(a => a.contraseña)
+                        </td>
+                        <td>
+                            @Html.PasswordFor(a => a.contraseña)
+                        </td>
+                        <td>
+                            @Html.ValidationMessageFor(a => a.contraseña)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <input type="submit" value="Login" />
+                        </td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+        </fieldset>
+
+
+    }
+</section>

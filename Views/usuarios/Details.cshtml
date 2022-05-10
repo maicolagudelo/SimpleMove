@@ -1,66 +1,64 @@
 ﻿@model SimpleMove.Models.usuarios
 
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout_administrador.cshtml";
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Details</title>
-</head>
-<body>
-    <div>
-        <h4>usuarios</h4>
-        <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.tipo_usuarios.usuario)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.tipo_usuarios.usuario)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.contraseña)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.contraseña)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.nombre)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.nombre)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.apellido)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.apellido)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.direccion)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.direccion)
-            </dd>
-    
-        </dl>
+<section class="full-box dashboard-contentPage">
+    <div class="container-fluid">
+        <div class="page-header">
+            <h1 class="text-titles">Usuarios</h1>
+        </div>
     </div>
-    <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.telefono }) |
-        @Html.ActionLink("Back to List", "Index")
-    </p>
-</body>
-</html>
+
+
+
+    <dl class="dl-horizontal">
+        <div class="album py-5 bg-light">
+            <div class="container">
+                <div class="text-center">
+                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                        <div class="col">
+                            <div class="card shadow-sm" , style="padding:10px; margin-left:60px">
+
+                                <div class="card-body" , style="margin-top:20px">
+                                    <h4 style="font-family:'Arial Rounded MT'">
+                                        TELEFONO:
+                                    </h4>
+                                    <h4>@Html.DisplayFor(model => model.telefono)</h4>
+                                    <h4 style="font-family:'Arial Rounded MT'">
+                                        TIPO USUARIO:
+                                    </h4>
+                                    <h4>@Html.DisplayFor(model => model.tipo_usuarios.usuario)</h4>
+                                    <h4 style="font-family:'Arial Rounded MT'">
+                                        NOMBRE:
+                                    </h4>
+                                    <h4> @Html.DisplayFor(model => model.nombre)</h4>
+
+                                    <h4 style="font-family:'Arial Rounded MT'">
+                                        APELLIDO:
+                                    </h4>
+                                    <h4>@Html.DisplayFor(model => model.apellido)</h4>
+
+                                    <h4 style="font-family:'Arial Rounded MT'">
+                                        DIRECCION:
+                                    </h4>
+                                    <h4> @Html.DisplayFor(model => model.direccion)</h4>
+
+                                </div>
+
+
+                                <button href="#!" class="btn btn-info btn-raised btn-sm" style="background-color: #96FEF3 ">| @Html.ActionLink("Editar", "Edit", new { id = Model.telefono }) |</button>
+                                <button href="#!" class="btn btn-info btn-raised btn-sm" style="background-color: #96FEF3 ">| @Html.ActionLink("Atras", "Usuario") |</button>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </dl>
+
+
+</section>
