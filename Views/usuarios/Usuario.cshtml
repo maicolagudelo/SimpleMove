@@ -18,8 +18,8 @@
         <!-- Content page -->
         <div class="container-fluid">
             <div class="page-header">
-                <h1 class="text-titles"><i class="zmdi zmdi-account zmdi-hc-fw"></i> Listado <small>Usuarios</small></h1>
-                @Html.ActionLink("Create Nuevo usuario", "Create")
+                <h1 class="text-titles"><i class="fa-solid fa-list"></i> Listado <small>Usuarios</small></h1>
+                @Html.ActionLink("Crear Nuevo usuario", "Create")
             </div>
         </div>
         <div class="container-fluid">
@@ -83,10 +83,7 @@
                                             <td>
                                                 @Html.ActionLink("Detalles", "Details", new { id = item.telefono })
                                             </td>
-                                            <td>
-
-                                                @Html.ActionLink("Eliminar", "Delete", new { id = item.telefono })
-                                            </td>
+                                            
                                         </tr>
                                         }
                                         

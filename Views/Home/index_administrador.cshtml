@@ -5,9 +5,13 @@
 }
 <section class="full-box dashboard-contentPage">
     <div class="container-fluid">
-        <div class="page-header">
-            <h1 class="text-titles">Bienvenido</h1>
-        </div>
+        @if (Session["UserTelefono"] != null)
+        {
+
+            <div class="page-header">
+                <h1 class="text-titles">Bienvenido @Session["UserNombre"].ToString()</h1>
+            </div>
+        }
     </div>
 
 </section>

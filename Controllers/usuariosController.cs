@@ -18,29 +18,54 @@ namespace SimpleMove.Controllers
         
         public ActionResult Usuario()
         {
-            var usuarios = db.usuarios.Include(u => u.tipo_usuarios);
-            return View(usuarios.ToList());
+            if (Session["UserTelefono"] != null)
+            {
+                var usuarios = db.usuarios.Include(u => u.tipo_usuarios);
+                return View(usuarios.ToList());
+            }
+            else
+            {
+                return RedirectToAction("index", "Home");
+            }
+            
         }
         // GET: usuarios/Details/5
         public ActionResult Details(long? id)
         {
-            if (id == null)
+            if (Session["UserTelefono"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                usuarios usuarios = db.usuarios.Find(id);
+                if (usuarios == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(usuarios);
             }
-            usuarios usuarios = db.usuarios.Find(id);
-            if (usuarios == null)
+            else
             {
-                return HttpNotFound();
+                return RedirectToAction("index", "Home");
             }
-            return View(usuarios);
+
+            
         }
 
         // GET: usuarios/Create
         public ActionResult Create()
         {
-            ViewBag.tipo_usuario = new SelectList(db.tipo_usuarios, "tipo_usuario", "usuario");
-            return View();
+            if (Session["UserTelefono"] != null)
+            {
+                ViewBag.tipo_usuario = new SelectList(db.tipo_usuarios, "tipo_usuario", "usuario");
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("index", "Home");
+            }
+            
         }
 
         // POST: usuarios/Create
@@ -65,17 +90,25 @@ namespace SimpleMove.Controllers
         // GET: usuarios/Edit/5
         public ActionResult Edit(long? id)
         {
-            if (id == null)
+            if (Session["UserTelefono"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                usuarios usuarios = db.usuarios.Find(id);
+                if (usuarios == null)
+                {
+                    return HttpNotFound();
+                }
+                ViewBag.tipo_usuario = new SelectList(db.tipo_usuarios, "tipo_usuario", "usuario", usuarios.tipo_usuario);
+                return View(usuarios);
             }
-            usuarios usuarios = db.usuarios.Find(id);
-            if (usuarios == null)
+            else
             {
-                return HttpNotFound();
+                return RedirectToAction("index", "Home");
             }
-            ViewBag.tipo_usuario = new SelectList(db.tipo_usuarios, "tipo_usuario", "usuario", usuarios.tipo_usuario);
-            return View(usuarios);
+            
         }
 
         // POST: usuarios/Edit/5
@@ -98,16 +131,25 @@ namespace SimpleMove.Controllers
         // GET: usuarios/Delete/5
         public ActionResult Delete(long? id)
         {
-            if (id == null)
+
+            if (Session["UserTelefono"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                usuarios usuarios = db.usuarios.Find(id);
+                if (usuarios == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(usuarios);
             }
-            usuarios usuarios = db.usuarios.Find(id);
-            if (usuarios == null)
+            else
             {
-                return HttpNotFound();
+                return RedirectToAction("index", "Home");
             }
-            return View(usuarios);
+            
         }
 
         // POST: usuarios/Delete/5

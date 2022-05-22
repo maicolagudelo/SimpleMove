@@ -17,26 +17,55 @@ namespace SimpleMove.Controllers
 
         public ActionResult index_cliente()
         {
+            if (Session["UserTelefono"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("index", "Home");
+            }
             
-            return View();
         }
 
-        public ActionResult index_ayudante()
+        
+        public ActionResult index_ayudante(LoginViewController login )
         {
-
-            return View();
+            if (Session["UserTelefono"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("index", "Home");
+            }
+            
         }
 
         public ActionResult index_conductor()
         {
 
-            return View();
+            if (Session["UserTelefono"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("index", "Home");
+            }
         }
 
         public ActionResult index_administrador()
         {
 
-            return View();
+            if (Session["UserTelefono"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("index", "Home");
+            }
         }
     }
 }

@@ -1,0 +1,88 @@
+﻿@model SimpleMove.Models.usuarios
+@{
+    Layout = "~/Views/Shared/_Layout_login.cshtml";
+}
+
+<div class="limiter">
+    <div class="container-login100" style="background: linear-gradient(-135deg, #7db6f1, #64a19d); ">
+        <div class="wrap-login100" style="padding: 60px 130px 100px 95px; background: #00000052 ">
+
+            <div class="login100-pic js-tilt" data-tilt>
+                <img src="@Url.Content("~/Content/assets/img/img-01.png")">
+            </div>
+            @using (Html.BeginForm("Registro", "LoginView", FormMethod.Post))
+            {
+
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+
+                <form class="login100-form validate-form">
+                    <span class="login100-form-title" style="color:white">
+                        Registro
+                    </span>
+
+                    <div class="wrap-input100 validate-input" data-validate="Valid telefono is required: ex@abc.xyz">
+                        <input class="input100" type="text" name="telefono" placeholder="Telefono">
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                        </span>@Html.ValidationMessageFor(model => model.telefono, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="wrap-input100 validate-input" data-validate="Password is required">
+                        <input class="input100" type="password" name="contraseña" placeholder="contraseña">
+                        <span class="focus-input100"> @Html.ValidationMessageFor(model => model.contraseña, "", new { @class = "text-danger" })</span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-lock" aria-hidden="true"></i>
+                        </span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input" data-validate="Tipo usuario is required">
+                        
+                        @Html.DropDownList("tipo_usuario", null, htmlAttributes: new { @class = "input100" })
+                       
+                        <span class="focus-input100"></span>
+                        
+                        @Html.ValidationMessageFor(model => model.tipo_usuario, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="wrap-input100 validate-input" data-validate="Nombre is required">
+                        <input class="input100" type="text" name="nombre" placeholder="Nombre">
+                        <span class="focus-input100"> @Html.ValidationMessageFor(model => model.nombre, "", new { @class = "text-danger" })</span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-lock" aria-hidden="true"></i>
+                        </span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input" data-validate="Apellido is required">
+                        <input class="input100" type="text" name="apellido" placeholder="Apellido">
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                        </span>@Html.ValidationMessageFor(model => model.apellido, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="wrap-input100 validate-input" data-validate="Direccion is required">
+                        <input class="input100" type="text" name="direccion" placeholder="Direccion">
+                        <span class="focus-input100"> @Html.ValidationMessageFor(model => model.direccion, "", new { @class = "text-danger" })</span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-lock" aria-hidden="true"></i>
+                        </span>
+                    </div>
+
+                    <input class="login100-form-btn" type="submit" value="Registrarse" style="background: #465765" />
+                    <br />
+
+                    <div class="login100-form-btn">
+                        <a class="txt2" style="color: white" href="@Url.Action("login", "LoginView")">
+                            Login
+
+                        </a>
+                    </div>
+
+                </form>
+            }
+        </div>
+    </div>
+</div>
+

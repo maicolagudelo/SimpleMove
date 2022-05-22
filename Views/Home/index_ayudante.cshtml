@@ -2,11 +2,17 @@
 @{
     Layout = "~/Views/Shared/_Layout_ayudantes.cshtml";
 }
+
 <section class="full-box dashboard-contentPage">
     <div class="container-fluid">
-        <div class="page-header">
-            <h1 class="text-titles">Bienvenido</h1>
-        </div>
-    </div>
 
-</section>
+        @if (Session["UserTelefono"] != null)
+        {
+
+            <div class="page-header">
+                <h1 class="text-titles">Bienvenido @Session["UserNombre"].ToString()</h1>
+          </div>
+         }  
+        </div>
+        
+    </section>

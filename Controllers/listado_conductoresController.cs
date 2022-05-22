@@ -17,47 +17,84 @@ namespace SimpleMove.Controllers
         // cliente
         public ActionResult Listado()
         {
-            var listado_conductores = db.listado_conductores.Include(l => l.usuarios);
-            return View(listado_conductores.ToList());
+            if (Session["UserTelefono"] != null)
+            {
+                var listado_conductores = db.listado_conductores.Include(l => l.usuarios);
+                return View(listado_conductores.ToList());
+            }
+            else
+            {
+                return RedirectToAction("index", "Home");
+            }
+
+            
         }
 
 
         public ActionResult Calificacion(int? id)
         {
-            if (id == null)
+
+            if (Session["UserTelefono"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                listado_conductores listado_conductores = db.listado_conductores.Find(id);
+                if (listado_conductores == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(listado_conductores);
+
             }
-            listado_conductores listado_conductores = db.listado_conductores.Find(id);
-            if (listado_conductores == null)
+            else
             {
-                return HttpNotFound();
+                return RedirectToAction("index", "Home");
             }
-            return View(listado_conductores);
+
+            
         }
 
 
         // conductores
         public ActionResult Listado_conductores()
         {
-            var listado_conductores = db.listado_conductores.Include(l => l.usuarios);
-            return View(listado_conductores.ToList());
+            if (Session["UserTelefono"] != null)
+            {
+                var listado_conductores = db.listado_conductores.Include(l => l.usuarios);
+                return View(listado_conductores.ToList());
+            }
+            else
+            {
+                return RedirectToAction("index", "Home");
+            }
+            
         }
 
 
 
         public ActionResult Calificacion_conductores(int? id)
         {
-            if (id == null)
+
+            if (Session["UserTelefono"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                listado_conductores listado_conductores = db.listado_conductores.Find(id);
+                if (listado_conductores == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(listado_conductores);
             }
-            listado_conductores listado_conductores = db.listado_conductores.Find(id);
-            if (listado_conductores == null)
+            else
             {
-                return HttpNotFound();
+                return RedirectToAction("index", "Home");
             }
-            return View(listado_conductores);
+            
 
         }
 
@@ -68,8 +105,16 @@ namespace SimpleMove.Controllers
         // GET: listado_conductores/Create
         public ActionResult Crear()
         {
-            ViewBag.telefono = new SelectList(db.usuarios, "telefono", "contraseña");
-            return View();
+            if (Session["UserTelefono"] != null)
+            {
+                ViewBag.telefono = new SelectList(db.usuarios, "telefono", "nombre");
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("index", "Home");
+            }
+            
         }
 
         // POST: listado_conductores/Create
@@ -86,7 +131,7 @@ namespace SimpleMove.Controllers
                 return RedirectToAction("Listado_conductores");
             }
 
-            ViewBag.telefono = new SelectList(db.usuarios, "telefono", "contraseña", listado_conductores.telefono);
+            ViewBag.telefono = new SelectList(db.usuarios, "telefono", "nombre", listado_conductores.telefono);
             return View(listado_conductores);
         }
 
@@ -94,17 +139,26 @@ namespace SimpleMove.Controllers
         // GET: listado_conductores/Edit/5
         public ActionResult Editar(int? id)
         {
-            if (id == null)
+
+            if (Session["UserTelefono"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            listado_conductores listado_conductores = db.listado_conductores.Find(id);
-            if (listado_conductores == null)
-            {
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                listado_conductores listado_conductores = db.listado_conductores.Find(id);
+                if (listado_conductores == null)
+                {
                 return HttpNotFound();
+                }
+                ViewBag.telefono = new SelectList(db.usuarios, "telefono", "nombre", listado_conductores.telefono);
+                return View(listado_conductores);
             }
-            ViewBag.telefono = new SelectList(db.usuarios, "telefono", "contraseña", listado_conductores.telefono);
-            return View(listado_conductores);
+            else
+            {
+                return RedirectToAction("index", "Home");
+            }
+            
         }
 
         // POST: listado_conductores/Edit/5
@@ -120,22 +174,31 @@ namespace SimpleMove.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Listado_conductores");
             }
-            ViewBag.telefono = new SelectList(db.usuarios, "telefono", "contraseña", listado_conductores.telefono);
+            ViewBag.telefono = new SelectList(db.usuarios, "telefono", "nombre", listado_conductores.telefono);
             return View(listado_conductores);
         }
 
         public ActionResult Delete_conductores(int? id)
         {
-            if (id == null)
+            if (Session["UserTelefono"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                listado_conductores listado_conductores = db.listado_conductores.Find(id);
+                if (listado_conductores == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(listado_conductores);
             }
-            listado_conductores listado_conductores = db.listado_conductores.Find(id);
-            if (listado_conductores == null)
+            else
             {
-                return HttpNotFound();
+                return RedirectToAction("index", "Home");
             }
-            return View(listado_conductores);
+
+            
         }
 
         // POST: listado_conductores/Delete/5
@@ -143,10 +206,18 @@ namespace SimpleMove.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed_conductores(int id)
         {
-            listado_conductores listado_conductores = db.listado_conductores.Find(id);
-            db.listado_conductores.Remove(listado_conductores);
-            db.SaveChanges();
-            return RedirectToAction("Listado_conductores");
+            if (Session["UserTelefono"] != null)
+            {
+                listado_conductores listado_conductores = db.listado_conductores.Find(id);
+                db.listado_conductores.Remove(listado_conductores);
+                db.SaveChanges();
+                return RedirectToAction("Listado_conductores");
+            }
+            else
+            {
+                return RedirectToAction("index", "Home");
+            }
+            
         }
 
 
@@ -159,38 +230,64 @@ namespace SimpleMove.Controllers
 
         public ActionResult Listado_administradores()
         {
-            var listado_conductores = db.listado_conductores.Include(l => l.usuarios);
-            return View(listado_conductores.ToList());
+            if (Session["UserTelefono"] != null)
+            {
+                var listado_conductores = db.listado_conductores.Include(l => l.usuarios);
+                return View(listado_conductores.ToList());
+            }
+            else
+            {
+                return RedirectToAction("index", "Home");
+            }
+            
         }
 
         public ActionResult Calificacion_administradores(int? id)
         {
-            if (id == null)
+            if (Session["UserTelefono"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                listado_conductores listado_conductores = db.listado_conductores.Find(id);
+                if (listado_conductores == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(listado_conductores);
             }
-            listado_conductores listado_conductores = db.listado_conductores.Find(id);
-            if (listado_conductores == null)
+            else
             {
-                return HttpNotFound();
+                return RedirectToAction("index", "Home");
             }
-            return View(listado_conductores);
+
+            
         }
 
         // GET: listado_conductores/Edit/5
         public ActionResult Editar_administradores(int? id)
         {
-            if (id == null)
+            if (Session["UserTelefono"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                listado_conductores listado_conductores = db.listado_conductores.Find(id);
+                if (listado_conductores == null)
+                {
+                    return HttpNotFound();
+                }
+                ViewBag.telefono = new SelectList(db.usuarios, "telefono", "nombre", listado_conductores.telefono);
+                return View(listado_conductores);
             }
-            listado_conductores listado_conductores = db.listado_conductores.Find(id);
-            if (listado_conductores == null)
+            else
             {
-                return HttpNotFound();
+                return RedirectToAction("index", "Home");
             }
-            ViewBag.telefono = new SelectList(db.usuarios, "telefono", "contraseña", listado_conductores.telefono);
-            return View(listado_conductores);
+
+            
         }
 
         // POST: listado_conductores/Edit/5
@@ -206,7 +303,7 @@ namespace SimpleMove.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Listado_administradores");
             }
-            ViewBag.telefono = new SelectList(db.usuarios, "telefono", "contraseña", listado_conductores.telefono);
+            ViewBag.telefono = new SelectList(db.usuarios, "telefono", "nombre", listado_conductores.telefono);
             return View(listado_conductores);
         }
 
@@ -215,16 +312,25 @@ namespace SimpleMove.Controllers
         // GET: listado_conductores/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            if (Session["UserTelefono"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                listado_conductores listado_conductores = db.listado_conductores.Find(id);
+                if (listado_conductores == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(listado_conductores);
             }
-            listado_conductores listado_conductores = db.listado_conductores.Find(id);
-            if (listado_conductores == null)
+            else
             {
-                return HttpNotFound();
+                return RedirectToAction("index", "Home");
             }
-            return View(listado_conductores);
+
+            
         }
 
         // POST: listado_conductores/Delete/5
@@ -232,10 +338,19 @@ namespace SimpleMove.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            listado_conductores listado_conductores = db.listado_conductores.Find(id);
-            db.listado_conductores.Remove(listado_conductores);
-            db.SaveChanges();
-            return RedirectToAction("Listado_administradores");
+            if (Session["UserTelefono"] != null)
+            {
+                listado_conductores listado_conductores = db.listado_conductores.Find(id);
+                db.listado_conductores.Remove(listado_conductores);
+                db.SaveChanges();
+                return RedirectToAction("Listado_administradores");
+            }
+            else
+            {
+                return RedirectToAction("index", "Home");
+            }
+
+            
         }
 
 

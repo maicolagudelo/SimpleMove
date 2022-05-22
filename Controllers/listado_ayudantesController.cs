@@ -15,26 +15,50 @@ namespace SimpleMove.Controllers
         private simplemove db = new simplemove();
 
 
+        
+
+
+
         // Cliente
         public ActionResult Listado()
         {
-            var listado_ayudantes = db.listado_ayudantes.Include(l => l.usuarios);
-            return View(listado_ayudantes.ToList());
+            if (Session["UserTelefono"] != null)
+            {
+                var listado_ayudantes = db.listado_ayudantes.Include(l => l.usuarios);
+                
+                return View(listado_ayudantes.ToList());
+            }
+            else
+            {
+                return RedirectToAction("index", "Home");
+            }
+
+            
         }
 
         // GET: cliente_ayudante/Details/5  
         public ActionResult Calificacion(int? id)
         {
-            if (id == null)
+
+
+            if (Session["UserTelefono"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                listado_ayudantes listado_ayudantes = db.listado_ayudantes.Find(id);
+                if (listado_ayudantes == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(listado_ayudantes);
             }
-            listado_ayudantes listado_ayudantes = db.listado_ayudantes.Find(id);
-            if (listado_ayudantes == null)
+            else
             {
-                return HttpNotFound();
+                return RedirectToAction("index", "Home");
             }
-            return View(listado_ayudantes);
+
         }
 
 
@@ -45,30 +69,59 @@ namespace SimpleMove.Controllers
         // Ayudante
         public ActionResult Listado_ayudante()
         {
-            var listado_ayudantes = db.listado_ayudantes.Include(l => l.usuarios);
-            return View(listado_ayudantes.ToList());
-        }
+            if (Session["UserTelefono"] != null)
+            {
+                var listado_ayudantes = db.listado_ayudantes.Include(l => l.usuarios);
+
+                return View(listado_ayudantes.ToList());
+            }
+            else
+            {
+                return RedirectToAction("index", "Home");
+            }
+        }  
 
         public ActionResult Calificacion_ayudante(int? id)
         {
-            if (id == null)
+
+            if (Session["UserTelefono"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                listado_ayudantes listado_ayudantes = db.listado_ayudantes.Find(id);
+                if (listado_ayudantes == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(listado_ayudantes);
             }
-            listado_ayudantes listado_ayudantes = db.listado_ayudantes.Find(id);
-            if (listado_ayudantes == null)
+            else
             {
-                return HttpNotFound();
+                return RedirectToAction("index", "Home");
             }
-            return View(listado_ayudantes);
+            
         }
 
 
 
         public ActionResult Crear()
         {
-            ViewBag.telefono = new SelectList(db.usuarios, "telefono", "contraseña");
-            return View();
+
+
+            if (Session["UserTelefono"] != null)
+            {
+               
+                
+                ViewBag.telefono = new SelectList(db.usuarios, "telefono", "nombre");
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("index", "Home");
+            }
+            
         }
 
         // POST: listado_ayudantes/Create
@@ -78,31 +131,42 @@ namespace SimpleMove.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Crear([Bind(Include = "codigo,descripcion,costo,medioInfo,telefono")] listado_ayudantes listado_ayudantes)
         {
+
+           
             if (ModelState.IsValid)
             {
                 db.listado_ayudantes.Add(listado_ayudantes);
                 db.SaveChanges();
                 return RedirectToAction("listado_ayudante");
             }
-
-            ViewBag.telefono = new SelectList(db.usuarios, "telefono", "contraseña", listado_ayudantes.telefono);
+            ViewBag.telefono = new SelectList(db.usuarios, "telefono", "nombre", listado_ayudantes.telefono);
             return View(listado_ayudantes);
         }
 
         // GET: listado_ayudantes/Edit/5
         public ActionResult Editar(int? id)
         {
-            if (id == null)
+            if (Session["UserTelefono"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                listado_ayudantes listado_ayudantes = db.listado_ayudantes.Find(id);
+                if (listado_ayudantes == null)
+                {
+                    return HttpNotFound();
+                }
+                ViewBag.telefono = new SelectList(db.usuarios, "telefono", "nombre", listado_ayudantes.telefono);
+                return View(listado_ayudantes);
             }
-            listado_ayudantes listado_ayudantes = db.listado_ayudantes.Find(id);
-            if (listado_ayudantes == null)
+
+            else
             {
-                return HttpNotFound();
+                return RedirectToAction("index", "Home");
             }
-            ViewBag.telefono = new SelectList(db.usuarios, "telefono", "contraseña", listado_ayudantes.telefono);
-            return View(listado_ayudantes);
+
+            
         }
 
         // POST: listado_ayudantes/Edit/5
@@ -118,23 +182,32 @@ namespace SimpleMove.Controllers
                 db.SaveChanges();
                 return RedirectToAction("listado_ayudante");
             }
-            ViewBag.telefono = new SelectList(db.usuarios, "telefono", "contraseña", listado_ayudantes.telefono);
+            ViewBag.telefono = new SelectList(db.usuarios, "telefono", "nombre", listado_ayudantes.telefono);
             return View(listado_ayudantes);
         }
 
 
         public ActionResult Delete_ayudante(int? id)
         {
-            if (id == null)
+            if (Session["UserTelefono"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                listado_ayudantes listado_ayudantes = db.listado_ayudantes.Find(id);
+                if (listado_ayudantes == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(listado_ayudantes);
             }
-            listado_ayudantes listado_ayudantes = db.listado_ayudantes.Find(id);
-            if (listado_ayudantes == null)
+            else
             {
-                return HttpNotFound();
+                return RedirectToAction("index", "Home");
             }
-            return View(listado_ayudantes);
+
+            
         }
 
         // POST: cliente_ayudante/Delete/5
@@ -151,39 +224,70 @@ namespace SimpleMove.Controllers
         // Administrador
         public ActionResult Listado_administradores()
         {
-            var listado_ayudantes = db.listado_ayudantes.Include(l => l.usuarios);
-            return View(listado_ayudantes.ToList());
+            if (Session["UserTelefono"] != null)
+            {
+                var listado_ayudantes = db.listado_ayudantes.Include(l => l.usuarios);
+                return View(listado_ayudantes.ToList());
+            }
+            else
+            {
+                return RedirectToAction("index", "Home");
+            }
+
+            
         }
 
         public ActionResult Calificacion_administrador(int? id)
         {
-            if (id == null)
+
+            if (Session["UserTelefono"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                listado_ayudantes listado_ayudantes = db.listado_ayudantes.Find(id);
+                if (listado_ayudantes == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(listado_ayudantes);
+
             }
-            listado_ayudantes listado_ayudantes = db.listado_ayudantes.Find(id);
-            if (listado_ayudantes == null)
+            else
             {
-                return HttpNotFound();
+                return RedirectToAction("index", "Home");
             }
-            return View(listado_ayudantes);
+
+            
         }
 
 
 
         public ActionResult Editar_administradores(int? id)
         {
-            if (id == null)
+
+            if (Session["UserTelefono"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                listado_ayudantes listado_ayudantes = db.listado_ayudantes.Find(id);
+                if (listado_ayudantes == null)
+                {
+                    return HttpNotFound();
+                }
+                ViewBag.telefono = new SelectList(db.usuarios, "telefono", "contraseña", listado_ayudantes.telefono);
+                return View(listado_ayudantes);
+
             }
-            listado_ayudantes listado_ayudantes = db.listado_ayudantes.Find(id);
-            if (listado_ayudantes == null)
+            else
             {
-                return HttpNotFound();
+                return RedirectToAction("index", "Home");
             }
-            ViewBag.telefono = new SelectList(db.usuarios, "telefono", "contraseña", listado_ayudantes.telefono);
-            return View(listado_ayudantes);
+
+            
         }
 
         // POST: listado_ayudantes/Edit/5
@@ -207,16 +311,27 @@ namespace SimpleMove.Controllers
         // GET: cliente_ayudante/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            if (Session["UserTelefono"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                listado_ayudantes listado_ayudantes = db.listado_ayudantes.Find(id);
+                if (listado_ayudantes == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(listado_ayudantes);
+
             }
-            listado_ayudantes listado_ayudantes = db.listado_ayudantes.Find(id);
-            if (listado_ayudantes == null)
+            else
             {
-                return HttpNotFound();
+                return RedirectToAction("index", "Home");
             }
-            return View(listado_ayudantes);
+
+
+            
         }
 
         // POST: cliente_ayudante/Delete/5

@@ -16,10 +16,23 @@ namespace SimpleMove.Controllers
         
         [HttpPost]
         [Route("login")]
-        public IHttpActionResult login(LoginViewController telefono)
+        public IHttpActionResult login(usuarios user, LoginViewController obj)
         {
 
-            return Ok();
+
+            
+            if (obj != null)
+            {
+                var token = TokenGenerator.GenerateTokenJwt(user.nombre);
+                return Ok(new LoginViewController().Login(user, token));
+            }
+            else
+            {
+                string n = "null";
+                return Ok(new LoginViewController().Login(user, n));
+            }
+
+            
            //var token = TokenGenerator.GenerateTokenJwt(telefono);
            //return Ok(token);
             

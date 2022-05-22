@@ -27,13 +27,19 @@ namespace SimpleMove
                       "~/Content/js/material.min.js",
                       "~/Content/js/ripples.min.js",
                       "~/Content/js/jquery.mCustomScrollbar.concat.min.js",
-                      "~/Content/js/main.js"));
+                      "~/Content/js/main.js",
+                      "~/Content/js/main2.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/css/styles.css"));
 
             bundles.Add(new StyleBundle("~/Conten/css").Include(
                       "~/Content/css/main.css"));
+
+            bundles.Add(new StyleBundle("~/Contentlogin/css").Include(
+                      "~/Content/css/main2.css",
+                      "~/Content/css/util.css",
+                      "~/Content/css/font-awesome-4.7.0/css/font-awesome.min.css"));
         }
     }
 }
