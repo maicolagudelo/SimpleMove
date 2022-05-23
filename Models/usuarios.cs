@@ -11,6 +11,7 @@ namespace SimpleMove.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public usuarios()
         {
+            calificacion = new HashSet<calificacion>();
             listado_ayudantes = new HashSet<listado_ayudantes>();
             listado_conductores = new HashSet<listado_conductores>();
         }
@@ -32,6 +33,11 @@ namespace SimpleMove.Models
 
         [StringLength(100)]
         public string direccion { get; set; }
+
+        public byte[] foto { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<calificacion> calificacion { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<listado_ayudantes> listado_ayudantes { get; set; }

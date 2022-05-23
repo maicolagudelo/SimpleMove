@@ -32,13 +32,13 @@
 
 
                                                 <div class="card-body">
-                                                    <h3>@Html.DisplayFor(modelItem => item.usuarios.nombre)</h3>
+                                                    <h3>@Html.DisplayFor(modelItem => item.usuarios.nombre) @Html.DisplayFor(modelItem => item.usuarios.apellido)</h3>
                                                     <p class="card-text">@Html.DisplayFor(modelItem => item.usuarios.telefono)</p>
                                                     <p class="card-text">@Html.DisplayFor(modelItem => item.descripcion)</p>
 
                                                     <div class="d-flex justify-content-between align-items-center">
                                                         <div class="btn-group">
-                                                            <button href="#!" class="btn btn-info btn-raised btn-sm" style="background-color: #96FEF3 ">| @Html.ActionLink("Detalles", "Calificacion_ayudante", new { id = item.codigo }) |</button>
+                                                            <button href="#!" class="btn btn-info btn-raised btn-sm" style="background-color: #96FEF3 ">| @Html.ActionLink("Detalles", "Calificacion_conductores", new { id = item.codigo }) |</button>
                                                         </div>
                                                     </div>
                                                 </div>

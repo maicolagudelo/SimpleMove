@@ -6,25 +6,18 @@ namespace SimpleMove.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class listado_ayudantes
+    [Table("calificacion")]
+    public partial class calificacion
     {
         [Key]
         public int codigo { get; set; }
 
-        [StringLength(500)]
-        public string descripcion { get; set; }
-
-        [StringLength(50)]
-        public string costo { get; set; }
-
-        [StringLength(100)]
-        public string medioInfo { get; set; }
-
         public long telefono { get; set; }
 
-        public bool estado { get; set; }
-
-        public byte[] img { get; set; }
+        [Column("calificacion")]
+        [Required]
+        [StringLength(200)]
+        public string calificacion1 { get; set; }
 
         public virtual usuarios usuarios { get; set; }
     }

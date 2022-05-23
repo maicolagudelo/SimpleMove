@@ -2,9 +2,13 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 using SimpleMove.Models;
 
@@ -122,8 +126,14 @@ namespace SimpleMove.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Crear([Bind(Include = "codigo,descripcion,costo,medioInfo,capacidad,telefono")] listado_conductores listado_conductores)
+        public ActionResult Crear([Bind(Include = "codigo,descripcion,costo,medioInfo,capacidad,telefono,estado,img")] listado_conductores listado_conductores)
         {
+            HttpPostedFileBase FileBase = Request.Files[0];
+
+            WebImage image = new WebImage(FileBase.InputStream);
+
+            listado_conductores.img = image.GetBytes();
+
             if (ModelState.IsValid)
             {
                 db.listado_conductores.Add(listado_conductores);
@@ -166,8 +176,23 @@ namespace SimpleMove.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Editar([Bind(Include = "codigo,descripcion,costo,medioInfo,capacidad,telefono")] listado_conductores listado_conductores)
+        public ActionResult Editar([Bind(Include = "codigo,descripcion,costo,medioInfo,capacidad,telefono,estado,img")] listado_conductores listado_conductores)
         {
+            byte[] imagenactual = null;
+
+            HttpPostedFileBase FileBase = Request.Files[0];
+
+            if (FileBase == null)
+            {
+                imagenactual = db.listado_ayudantes.SingleOrDefault(t => t.codigo == listado_conductores.codigo).img;
+            }
+            else
+            {
+                WebImage image = new WebImage(FileBase.InputStream);
+
+                listado_conductores.img = image.GetBytes();
+            }
+
             if (ModelState.IsValid)
             {
                 db.Entry(listado_conductores).State = EntityState.Modified;
@@ -295,8 +320,23 @@ namespace SimpleMove.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Editar_administradores([Bind(Include = "codigo,descripcion,costo,medioInfo,capacidad,telefono")] listado_conductores listado_conductores)
+        public ActionResult Editar_administradores([Bind(Include = "codigo,descripcion,costo,medioInfo,capacidad,telefono,estado,img")] listado_conductores listado_conductores)
         {
+            byte[] imagenactual = null;
+
+            HttpPostedFileBase FileBase = Request.Files[0];
+
+            if (FileBase == null)
+            {
+                imagenactual = db.listado_ayudantes.SingleOrDefault(t => t.codigo == listado_conductores.codigo).img;
+            }
+            else
+            {
+                WebImage image = new WebImage(FileBase.InputStream);
+
+                listado_conductores.img = image.GetBytes();
+            }
+
             if (ModelState.IsValid)
             {
                 db.Entry(listado_conductores).State = EntityState.Modified;
@@ -353,12 +393,7 @@ namespace SimpleMove.Controllers
             
         }
 
-
-
-
-
-
-
+        
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -367,5 +402,24 @@ namespace SimpleMove.Controllers
             }
             base.Dispose(disposing);
         }
+
+
+        public ActionResult getImage(int codigo)
+        {
+            listado_conductores imagen = db.listado_conductores.Find(codigo);
+            byte[] byteImage = imagen.img;
+
+            MemoryStream memoryStream = new MemoryStream(byteImage);
+            Image image = Image.FromStream(memoryStream);
+
+            memoryStream = new MemoryStream();
+            image.Save(memoryStream, ImageFormat.Jpeg);
+            memoryStream.Position = 0;
+
+
+            return File(memoryStream, "image/jpg");
+
+        }
+
     }
 }

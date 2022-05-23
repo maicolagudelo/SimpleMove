@@ -25,6 +25,10 @@ namespace SimpleMove.Models
 
         public long telefono { get; set; }
 
+        public bool estado { get; set; }
+
+        public byte[] img { get; set; }
+
         public virtual usuarios usuarios { get; set; }
     }
 }

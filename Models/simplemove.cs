@@ -12,6 +12,7 @@ namespace SimpleMove.Models
         {
         }
 
+        public virtual DbSet<calificacion> calificacion { get; set; }
         public virtual DbSet<listado_ayudantes> listado_ayudantes { get; set; }
         public virtual DbSet<listado_conductores> listado_conductores { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
@@ -20,6 +21,10 @@ namespace SimpleMove.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<calificacion>()
+                .Property(e => e.calificacion1)
+                .IsUnicode(false);
+
             modelBuilder.Entity<listado_ayudantes>()
                 .Property(e => e.descripcion)
                 .IsUnicode(false);
@@ -72,6 +77,11 @@ namespace SimpleMove.Models
             modelBuilder.Entity<usuarios>()
                 .Property(e => e.direccion)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<usuarios>()
+                .HasMany(e => e.calificacion)
+                .WithRequired(e => e.usuarios)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<usuarios>()
                 .HasMany(e => e.listado_ayudantes)

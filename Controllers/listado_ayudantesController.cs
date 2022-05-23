@@ -2,9 +2,13 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 using SimpleMove.Models;
 
@@ -129,10 +133,14 @@ namespace SimpleMove.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Crear([Bind(Include = "codigo,descripcion,costo,medioInfo,telefono")] listado_ayudantes listado_ayudantes)
+        public ActionResult Crear([Bind(Include = "codigo,descripcion,costo,medioInfo,telefono,estado,img")] listado_ayudantes listado_ayudantes)
         {
 
-           
+            HttpPostedFileBase FileBase = Request.Files[0];
+
+            WebImage image = new WebImage(FileBase.InputStream);
+
+            listado_ayudantes.img = image.GetBytes();
             if (ModelState.IsValid)
             {
                 db.listado_ayudantes.Add(listado_ayudantes);
@@ -174,8 +182,24 @@ namespace SimpleMove.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Editar([Bind(Include = "codigo,descripcion,costo,medioInfo,telefono")] listado_ayudantes listado_ayudantes)
+        public ActionResult Editar([Bind(Include = "codigo,descripcion,costo,medioInfo,telefono,estado,img")] listado_ayudantes listado_ayudantes)
         {
+
+            byte[] imagenactual = null;
+
+            HttpPostedFileBase FileBase = Request.Files[0];
+
+            if (FileBase == null)
+            {
+                imagenactual = db.listado_ayudantes.SingleOrDefault(t => t.codigo == listado_ayudantes.codigo).img;
+            }
+            else
+            {
+                WebImage image = new WebImage(FileBase.InputStream);
+
+                listado_ayudantes.img = image.GetBytes();
+            }
+
             if (ModelState.IsValid)
             {
                 db.Entry(listado_ayudantes).State = EntityState.Modified;
@@ -278,7 +302,7 @@ namespace SimpleMove.Controllers
                 {
                     return HttpNotFound();
                 }
-                ViewBag.telefono = new SelectList(db.usuarios, "telefono", "contraseña", listado_ayudantes.telefono);
+                ViewBag.telefono = new SelectList(db.usuarios, "telefono", "nombre", listado_ayudantes.telefono);
                 return View(listado_ayudantes);
 
             }
@@ -295,15 +319,31 @@ namespace SimpleMove.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Editar_administradores([Bind(Include = "codigo,descripcion,costo,medioInfo,telefono")] listado_ayudantes listado_ayudantes)
+        public ActionResult Editar_administradores([Bind(Include = "codigo,descripcion,costo,medioInfo,telefono,estado,img")] listado_ayudantes listado_ayudantes)
         {
+
+            byte[] imagenactual = null;
+
+            HttpPostedFileBase FileBase = Request.Files[0];
+
+            if (FileBase == null)
+            {
+                imagenactual = db.listado_ayudantes.SingleOrDefault(t => t.codigo == listado_ayudantes.codigo).img;
+            }
+            else
+            {
+                WebImage image = new WebImage(FileBase.InputStream);
+
+                listado_ayudantes.img = image.GetBytes();
+            }
+
             if (ModelState.IsValid)
             {
                 db.Entry(listado_ayudantes).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("listado_administradores");
             }
-            ViewBag.telefono = new SelectList(db.usuarios, "telefono", "contraseña", listado_ayudantes.telefono);
+            ViewBag.telefono = new SelectList(db.usuarios, "telefono", "nombre", listado_ayudantes.telefono);
             return View(listado_ayudantes);
         }
 
@@ -353,5 +393,22 @@ namespace SimpleMove.Controllers
             }
             base.Dispose(disposing);
         }
+        public ActionResult getImage(int codigo)
+        {
+            listado_ayudantes imagen = db.listado_ayudantes.Find(codigo);
+            byte[] byteImage = imagen.img;
+
+            MemoryStream memoryStream = new MemoryStream(byteImage);
+            Image image = Image.FromStream(memoryStream);
+
+            memoryStream = new MemoryStream();
+            image.Save(memoryStream, ImageFormat.Jpeg);
+            memoryStream.Position = 0;
+
+
+            return File(memoryStream, "image/jpg");
+
+        }
+
     }
 }

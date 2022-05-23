@@ -21,10 +21,11 @@
                             <div class="card shadow-sm" , style="padding:10px; margin-left:60px">
 
                                 <div class="card-body" , style="margin-top:20px">
+                                    <img width="200" src="@Url.Action("getImage","listado_ayudantes", new { codigo = Model.codigo})" alt="Alternate Text" />
                                     <h4 style="font-family:'Arial Rounded MT'">
                                         NOMBRE:
                                     </h4>
-                                    <h4>@Html.DisplayFor(model => model.usuarios.nombre)</h4>
+                                    <h4>@Html.DisplayFor(model => model.usuarios.nombre) @Html.DisplayFor(model => model.usuarios.apellido)</h4>
 
                                     <h4 style="font-family:'Arial Rounded MT'">
                                         DESCRIPCIÓN:
@@ -41,6 +42,17 @@
                                     </h4>
                                     <h4> @Html.DisplayFor(model => model.medioInfo)</h4>
 
+                                    <h4 style="font-family:'Arial Rounded MT'">
+                                        ACTIVO:
+                                    </h4>
+                                    @if (Model.estado == true)
+                                    {
+                                        <i class="fa-solid fa-square-check"></i>
+                                    }
+                                    else
+                                    {
+                                        <i class="fa-solid fa-x"></i>
+                                    }
                                 </div>
 
                                 @using (Html.BeginForm())
