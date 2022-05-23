@@ -204,9 +204,12 @@
     <Content Include="Content\assets\img\demo-image-02.jpg" />
     <Content Include="Content\assets\img\icons\favicon.ico" />
     <Content Include="Content\assets\img\img-01.png" />
+    <Content Include="Content\assets\img\inicio.jpg" />
     <Content Include="Content\assets\img\ipad.png" />
     <Content Include="Content\assets\img\loginFont.jpg" />
     <Content Include="Content\assets\img\sideBar-font.jpg" />
+    <Content Include="Content\assets\img\SimpleMoveLogo.png" />
+    <Content Include="Content\assets\img\SMLogoShort.png" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />
