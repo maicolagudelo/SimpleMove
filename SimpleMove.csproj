@@ -205,6 +205,9 @@
     <Content Include="Content\assets\img\icons\favicon.ico" />
     <Content Include="Content\assets\img\img-01.png" />
     <Content Include="Content\assets\img\inicio.jpg" />
+    <Content Include="Content\assets\img\inicio2.png" />
+    <Content Include="Content\assets\img\inicio3.png" />
+    <Content Include="Content\assets\img\inicio4.png" />
     <Content Include="Content\assets\img\ipad.png" />
     <Content Include="Content\assets\img\loginFont.jpg" />
     <Content Include="Content\assets\img\sideBar-font.jpg" />

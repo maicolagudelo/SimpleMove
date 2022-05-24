@@ -4,10 +4,10 @@
 }
 
 <div class="limiter">
-    <div class="container-login100" style="background: linear-gradient(-135deg, #7db6f1, #64a19d); ">
-        <div class="wrap-login100" style="padding: 60px 130px 100px 95px; background: #512df17a ">
+    <div class="container-login100" style="background: linear-gradient(-135deg, #7db6f1, #64a19d); min-height: 91vh">
+        <div class="wrap-login100" style="padding: 50px 130px 50px 95px; background: #512df17a ">
 
-            <div class="login100-pic js-tilt" data-tilt>
+            <div class="login100-pic js-tilt" data-tilt >
                 <img src="@Url.Content("~/Content/assets/img/SMLogoShort.png")">
             </div>
             @using (Html.BeginForm("Registro", "LoginView", FormMethod.Post))
@@ -22,15 +22,15 @@
                     </span>
 
                     <div class="wrap-input100 validate-input" data-validate="Valid telefono is required: ex@abc.xyz">
-                        <input class="input100" type="text" name="telefono" placeholder="Telefono">
+                        <input class="input100" type="text" name="telefono" placeholder="Telefono"  required>
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
-                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                            <i class="fa-solid fa-square-phone"></i>
                         </span>@Html.ValidationMessageFor(model => model.telefono, "", new { @class = "text-danger" })
                     </div>
 
                     <div class="wrap-input100 validate-input" data-validate="Password is required">
-                        <input class="input100" type="password" name="contraseña" placeholder="contraseña">
+                        <input class="input100" type="password" name="contraseña" placeholder="contraseña" required>
                         <span class="focus-input100"> @Html.ValidationMessageFor(model => model.contraseña, "", new { @class = "text-danger" })</span>
                         <span class="symbol-input100">
                             <i class="fa fa-lock" aria-hidden="true"></i>
@@ -47,26 +47,26 @@
                     </div>
 
                     <div class="wrap-input100 validate-input" data-validate="Nombre is required">
-                        <input class="input100" type="text" name="nombre" placeholder="Nombre">
+                        <input class="input100" type="text" name="nombre" placeholder="Nombre" required>
                         <span class="focus-input100"> @Html.ValidationMessageFor(model => model.nombre, "", new { @class = "text-danger" })</span>
                         <span class="symbol-input100">
-                            <i class="fa fa-lock" aria-hidden="true"></i>
+                            <i class="fa-solid fa-user"></i>
                         </span>
                     </div>
 
                     <div class="wrap-input100 validate-input" data-validate="Apellido is required">
-                        <input class="input100" type="text" name="apellido" placeholder="Apellido">
+                        <input class="input100" type="text" name="apellido" placeholder="Apellido" required>
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
-                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                            
                         </span>@Html.ValidationMessageFor(model => model.apellido, "", new { @class = "text-danger" })
                     </div>
 
                     <div class="wrap-input100 validate-input" data-validate="Direccion is required">
-                        <input class="input100" type="text" name="direccion" placeholder="Direccion">
+                        <input class="input100" type="text" name="direccion" placeholder="Direccion" required>
                         <span class="focus-input100"> @Html.ValidationMessageFor(model => model.direccion, "", new { @class = "text-danger" })</span>
                         <span class="symbol-input100">
-                            <i class="fa fa-lock" aria-hidden="true"></i>
+                            <i class="fa-solid fa-location-dot"></i>
                         </span>
                     </div>
 

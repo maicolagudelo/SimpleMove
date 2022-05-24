@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
     <!-- Core theme CSS (includes Bootstrap)-->
-
+    <link rel="shortcut icon" href="../../Content/assets/img/SMLogoShort.png">
 
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
@@ -31,7 +31,9 @@
                     <li class="nav-item"><a class="nav-link" href="#about">@Recursos.Recurso.LayoutInformacion</a></li>
                     <li class="nav-item"><a class="nav-link" href="#projects">@Recursos.Recurso.LayoutServicios</a></li>
                     <li class="nav-item"><a class="nav-link" href="#signup">@Recursos.Recurso.LayoutContactanos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="@Url.Action("login", "LoginView")" > Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="@Url.Action("login", "LoginView")"> Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="@Url.Action("Registro", "LoginView")"> Registro</a></li>
+
                 </ul>
             </div>
         </div>
