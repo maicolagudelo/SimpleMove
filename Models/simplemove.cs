@@ -38,10 +38,6 @@ namespace SimpleMove.Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<listado_conductores>()
-                .Property(e => e.descripcion)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<listado_conductores>()
                 .Property(e => e.costo)
                 .IsUnicode(false);
 

@@ -91,6 +91,8 @@ namespace SimpleMove.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Registro([Bind(Include = "telefono,contraseña,tipo_usuario,nombre,apellido,direccion")] usuarios usuarios)
         {
+
+
             if (ModelState.IsValid)
             {
                 db.usuarios.Add(usuarios);

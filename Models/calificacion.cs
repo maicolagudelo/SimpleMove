@@ -15,7 +15,6 @@ namespace SimpleMove.Models
         public long telefono { get; set; }
 
         [Column("calificacion")]
-        [Required]
         [StringLength(200)]
         public string calificacion1 { get; set; }
 

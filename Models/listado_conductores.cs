@@ -11,8 +11,8 @@ namespace SimpleMove.Models
         [Key]
         public int codigo { get; set; }
 
-        [StringLength(500)]
-        public string descripcion { get; set; }
+        [MaxLength(500)]
+        public byte[] descripcion { get; set; }
 
         [StringLength(50)]
         public string costo { get; set; }
